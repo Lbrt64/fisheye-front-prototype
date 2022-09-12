@@ -1,8 +1,16 @@
 @import url("photographer.css");
 
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
 body {
     font-family: "DM Sans", sans-serif;
-    margin: 0;
+    margin: auto;
+    max-width: 1440px;
 }
 
 
@@ -16,35 +24,119 @@ header {
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
+    margin: 42px 100px 0 0;
+    font-size: 36px;
+    font-weight: 400;
 }
 
 .logo {
     height: 50px;
-    margin-left: 100px;
+    width:200px;
+    margin: 42px 0 0 100px;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    margin-top: 80px;
+    position: relative;
 }
 
 .photographer_section article {
     justify-self: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    width: 400px;
+    height: 380px;
+    position: relative;
+
 }
 
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    font-weight: 400;
+    margin: 0;
 }
 
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
+.profile-picture-container {
+    display: block;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 240px;
+    width: 240px;
+}
+
+
+.profile-picture-front {
+    position: absolute;
+    display: block;
+    height: 228px;
+    width: 228px;
+    clip-path: circle(36%);
+    padding:2px;
+    object-fit: cover;
+    margin: 0;
+    z-index: 2;
+    border: none;
+    transition: all 0.15s ease-in-out;
+}
+
+article:hover .profile-picture-front {
+    clip-path: circle(32%);
+}
+
+.profile-picture-back-filter {
+    display: flex;
+    display: block;
+    height: 244px;
+    width: 244px;
+    position: absolute;
+    border-radius: 100px;
+    z-index: 1;
+    padding: 0px;
+    box-shadow: inset -6px -6px 10px 30px rgba(255, 255, 255, 100%);
+}
+
+.profile-picture-background {
+    position: absolute;
+    display: block;
+    border-radius: 1000px;
+    clip-path:none;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(1.1) saturate(2) opacity(14%);
+    height: 232px;
+    width: 232px;
+    padding:0;
+}
+
+.photographer_section article p {
+    margin: 0;
+}
+
+
+.photographer_section article .photographer_place {
+    font-size: 13px;
+    font-weight: 400;
+    color: #901C1C;
+}
+
+.photographer_section article .photographer_quote {
+    font-size: 10px;
+    font-weight: 400;
+    color: #000;
+}
+
+.photographer_section article .photographer_price {
+    font-size: 9px;
+    font-weight: 400;
+    color: #757575;
 }
