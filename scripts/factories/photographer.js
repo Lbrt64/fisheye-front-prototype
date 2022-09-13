@@ -66,11 +66,11 @@ function photographerFactory(data) {
             // VISUALISATION DE L'OBJET ARTICLE POUR CONTROLE
             console.log(article);
 
-            // L'OBJET ARTICLE EST CONSTRUIT MAIS PAS AJOUTE AU DOM 
+            // VALIDATION DE L'OPERATION DE CREATION D'UN ARTICLE 
             return (article);
     }
 
 
 
-    return { name, picture, getUserCardDOM }
+    return { name, id, city, country, tagline, price, portrait, picture, getUserCardDOM }
 }
