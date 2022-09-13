@@ -55,6 +55,7 @@ h1 {
     width: 400px;
     height: 380px;
     position: relative;
+    cursor: pointer;
 
 }
 
@@ -86,11 +87,11 @@ h1 {
     margin: 0;
     z-index: 2;
     border: none;
-    transition: all 0.15s ease-in-out;
+    transition: all 0.05s ease-in-out;
 }
 
 article:hover .profile-picture-front {
-    clip-path: circle(32%);
+    clip-path: circle(22%);
 }
 
 .profile-picture-back-filter {
@@ -102,7 +103,7 @@ article:hover .profile-picture-front {
     border-radius: 100px;
     z-index: 1;
     padding: 0px;
-    box-shadow: inset -6px -6px 10px 30px rgba(255, 255, 255, 100%);
+    box-shadow: inset -6px -6px 14px 34px rgba(255, 255, 255, 100%);
 }
 
 .profile-picture-background {
