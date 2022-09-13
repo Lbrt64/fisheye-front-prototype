@@ -6,6 +6,8 @@ function mediaFactory(data) {
         const { id, photographerID, title, image, likes, date, price } = data;
         // construction d'une nouvelle data - le lien d'accès aux photos
         const picturepath = `assets/media/${image}`;
+        // rendre les likes visibles
+        const likesCount = likes.toString();
 
     // CREATION DES ARTICLES POUR LA PAGE D'ACCUEIL 
     function getMediaCardDOM() {
@@ -28,7 +30,7 @@ function mediaFactory(data) {
 
                 // Création du paragraphe contenant le pricing du photographe
                 const likes = document.createElement ( 'p' );
-                likes.textContent = likes + "<3";
+                likes.textContent = likesCount + " <3" ;
                 likes.classList.add("likes");
 
             // ORGANISATION DES ELEMENTS TEXTUELS AU SEIN DE LEUR CONTENEUR -- ELEMENTS PAS AJOUTES A LA PAGE
