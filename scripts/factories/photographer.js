@@ -82,6 +82,7 @@ function photographerFactory(data) {
 
             // Création de la div avec les infos du photographe
             const infos = document.createElement( 'div' );
+            infos.classList.add("textInfoBox");
 
                 // Création du titre contenant le nom du photographe
                 const h1 = document.createElement( 'h1' );
@@ -90,18 +91,18 @@ function photographerFactory(data) {
                 // Création du paragraphe contenant la localisation du photographe
                 const location = document.createElement ( 'p' );
                 location.textContent = city + ', ' + country;
-                location.classList.add("photographer_place");
+                location.classList.add("photographer-place");
 
                 // Création du paragraphe contenant la tagline du photographe     
                 const quote = document.createElement ( 'p' );
                 quote.textContent = tagline;
-                quote.classList.add("photographer_quote");
+                quote.classList.add("photographer-quote");
 
 
             // Création du bouton contactez moi
             const boutonContact = document.createElement( 'button' );
             boutonContact.textContent = "Contactez-moi";
-            boutonContact.classList.add("contact_button");
+            boutonContact.classList.add("contact-button");
 
             // Création de l'élément qui contient la profile picture et les effets visuels
             const imgcontainer = document.createElement( 'div' );
@@ -136,6 +137,7 @@ function photographerFactory(data) {
 
             // VISUALISATION DE L'OBJET ARTICLE POUR CONTROLE
             console.log(profileBox);
+
 
             // VALIDATION DE L'OPERATION DE CREATION D'UN ARTICLE 
             return(profileBox);
