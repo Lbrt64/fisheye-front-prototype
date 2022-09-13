@@ -1,4 +1,5 @@
-
+// RECUPERE L'ID DU PHOTOGRAPHE DANS L'URL
+const photographerID = window.location.search.split("?").join("");
 
 // DEFINIT L'IMPORT DES DONNES DU JSON PHOTOGRAPHERS AU SEIN DE LA VARIABLE PHOTOGRAPHERS
 async function getPhotographers() {
@@ -12,19 +13,25 @@ async function getPhotographers() {
 
 // DEFINIT L'AFFICHAGE DES DONNES DES PHOTOGRAPHES SUR LA PAGE D'ACCUEIL DANS LES CARTES
 async function displayData(photographers) {
+
     // Identifie la section où les data seront ajoutées : PHOTOGRAPHER SECTION
-    const photographersSection = document.querySelector(".photograph-header");
+    const photographersHeader = document.querySelector(".photograph-header");
 
     // Pour chaque ligne du tableau photographers
     photographers.forEach((photographer) => {
-
-        // Utilise la FACTORY pour créer les USERCARDDOM des photographes à partir des données de PHOTOGRAPHER
-        const photographerModel = photographerFactory(photographer);
-        const userCardDOM = photographerModel.getUserCardDOM();
-        // Ajoute les USERCARDDOM sur la section PHOTOGRAPHER SECTION
-        photographersSection.appendChild(userCardDOM);
+        // si l'ID du photographe est dans l'URL
+        if (photographer.id == photographerID) {
+            // Utilise la FACTORY pour créer les USERCARDDOM des photographes à partir des données de PHOTOGRAPHER
+            const photographerModel = photographerFactory(photographer);
+            const photographInfoDOM = photographerModel.getPhotographInfoDOM();
+            // Ajoute les USERCARDDOM sur la section PHOTOGRAPHER SECTION
+            photographersHeader.appendChild(photographInfoDOM);
+        }
     });
 };
+
+
+
 
 // DEFINIT CE QUI SE PASSE AU LANCEMENT DE LA PAGE
 async function init() {
@@ -37,3 +44,4 @@ async function init() {
 
 // SE LANCE AU DEMARRAGE DE LA PAGE
 init();
+

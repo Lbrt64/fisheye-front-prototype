@@ -3,9 +3,11 @@
 }
 
 .photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    background-color: #312E2E;
+    height: 312px;
+    max-width: 1240px;
+    min-width: 320px;
+    display: flex;
 }
 
 .contact_button {
