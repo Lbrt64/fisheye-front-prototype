@@ -1,5 +1,10 @@
+// PARTIE 0 -- PREPARATION --------------------
+
 // RECUPERE L'ID DU PHOTOGRAPHE DANS L'URL
-const photographerID = window.location.search.split("?").join("");
+const currentPhotographerID = window.location.search.split("?").join("");
+
+// PARTIE 1 -- GESTION DE L'EN TETE --------------------
+
 
 // DEFINIT L'IMPORT DES DONNES DU JSON PHOTOGRAPHERS AU SEIN DE LA VARIABLE PHOTOGRAPHERS
 async function getPhotographers() {
@@ -11,7 +16,7 @@ async function getPhotographers() {
     return photographers;
 }
 
-// DEFINIT L'AFFICHAGE DES DONNES DES PHOTOGRAPHES SUR LA PAGE D'ACCUEIL DANS LES CARTES
+// DEFINIT L'AFFICHAGE DES DONNES DES PHOTOGRAPHES SUR LA PAGE PHOTOGRAPHE DANS LA SECTION DEDIEE
 async function displayData(photographers) {
 
     // Identifie la section où les data seront ajoutées : PHOTOGRAPHER SECTION
@@ -20,11 +25,11 @@ async function displayData(photographers) {
     // Pour chaque ligne du tableau photographers
     photographers.forEach((photographer) => {
         // si l'ID du photographe est dans l'URL
-        if (photographer.id == photographerID) {
-            // Utilise la FACTORY pour créer les USERCARDDOM des photographes à partir des données de PHOTOGRAPHER
+        if (photographer.id == currentPhotographerID) {
+            // Utilise la FACTORY pour créer les PHOTOGRAPHINFODOM des photographes à partir des données de PHOTOGRAPHER
             const photographerModel = photographerFactory(photographer);
             const photographInfoDOM = photographerModel.getPhotographInfoDOM();
-            // Ajoute les USERCARDDOM sur la section PHOTOGRAPHER SECTION
+            // Ajoute les PHOTOGRAPHINFODOM sur la section PHOTOGRAPHER SECTION
             photographersHeader.appendChild(photographInfoDOM);
         }
     });
@@ -32,6 +37,42 @@ async function displayData(photographers) {
 
 
 
+// PARTIE 2 -- GESTION DES MEDIA --------------------
+
+// DEFINIT L'IMPORT DES DONNES DU JSON MEDIA AU SEIN DE LA VARIABLE MEDIA
+async function getMedia() {
+    // Ajout des données du fichier "media.json" dans la constante media -- sous forme d'un tableau avec des objets
+    const media = await fetch("data/media.json").then(media => media.json());
+    // Vérificaiton de l'import du JSON 
+    console.log(media);
+    // Validation de l'opération d'import
+    return media;
+}
+
+// DEFINIT L'AFFICHAGE DES DONNES DES MEDIA SUR LA PAGE D'ACCUEIL DANS LES CARTES
+async function displayMedia(media) {
+
+    // Identifie la section où les data seront ajoutées : PHOTOGRAPHER SECTION
+    const mediaSection = document.querySelector(".media-section");
+
+    // Pour chaque ligne du tableau photographers
+    media.forEach((media) => {
+        // si l'ID du media est dans l'URL
+        if (media.photographerId == currentPhotographerID) {
+            // Utilise la FACTORY pour créer les MEDIACARDDOM des MEDIA à partir des données de MEDIA
+            const mediaModel = mediaFactory(media);
+            const mediaCardDOM = mediaModel.getMediaCardDOM();
+            // Ajoute les MEDIACARDDOM sur la section PHOTOGRAPHER SECTION
+            mediaSection.appendChild(mediaCardDOM);
+        }
+    });
+};
+
+
+
+
+
+// PARTIE 3 -- EXECUTION ---------------------------
 
 // DEFINIT CE QUI SE PASSE AU LANCEMENT DE LA PAGE
 async function init() {
@@ -40,8 +81,16 @@ async function init() {
     const { photographers } = await getPhotographers();
     // Crée et affiche les cartes en se basant sur la factory et les data
     displayData(photographers);
+
+    const { media } = await getMedia();
+    displayMedia(media);
+
 };
 
 // SE LANCE AU DEMARRAGE DE LA PAGE
 init();
+
+
+
+
 
