@@ -59,9 +59,7 @@ function sumLikes() {
         var sumLikes = 0;
         for (let i = 0; i < allLikes.length; i++) {
             sumLikes += parseFloat(allLikes[i].innerHTML);
-            console.log(sumLikes);
         }
-        console.log(sumLikes);
         const likesDisplay = document.createElement( 'p' );
         likesDisplay.textContent = sumLikes + " <3";
         likesDisplay.classList.add("boxlikes");

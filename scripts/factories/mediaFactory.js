@@ -43,7 +43,7 @@ function mediaFactory(data) {
                 h2.textContent = title;
 
                 // Création du paragraphe contenant le pricing du photographe
-                const likes = document.createElement ( 'p' );
+                const likes = document.createElement( 'p' );
                 likes.textContent = likesCount;
                 likes.classList.add("likes");
 

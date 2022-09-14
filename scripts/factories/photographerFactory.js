@@ -102,6 +102,9 @@ function photographerFactory(data) {
             const boutonContact = document.createElement( 'button' );
             boutonContact.textContent = "Contactez-moi";
             boutonContact.classList.add("contact-button");
+            boutonContact.setAttribute("onclick", "displayModal()");
+
+
 
             // Création de l'élément qui contient la profile picture et les effets visuels
             const imgcontainer = document.createElement( 'div' );

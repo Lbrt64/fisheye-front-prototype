@@ -31,18 +31,24 @@
     </div>
 
 
-    <div id="contact_modal">
+    <div id="contact_modal" class="modalbg">
 			<div class="modal">
-				<header>
+				<div class="form-header">
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
+        </div>
+				<form name="contact-me" id="contact-me-form">
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="first">Prénom</label>
+						<input type="text" id="first" name="first" class="smallText"/>
+						<label for="last">Nom</label>
+						<input type="text" id="last" name="last" class="smallText"/>
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" class="smallText"/>
+						<label for="message">Prénom</label>
+						<textarea id="message" name="message" class="longText"></textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact-button" type="submit">Envoyer</button>
 				</form>
 			</div>
 		</div>
