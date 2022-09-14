@@ -55,7 +55,6 @@ async function displayBoxPrice(photographers) {
 // Calculer le total des likes sur la page
 function sumLikes() {
     const allLikes = document.querySelectorAll(".likes")
-    console.log(allLikes[2].innerHTML);
     var sumLikes = 0;
     for (let i = 0; i < allLikes.length; i++) {
         sumLikes += parseFloat(allLikes[i].innerHTML);
