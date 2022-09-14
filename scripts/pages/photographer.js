@@ -74,6 +74,8 @@ function updateFormHeader() {
     formTitle.innerHTML = "Contactez-moi<br>" + photographerNameForm;
 }
 
+
+
 // PARTIE 2 -- GESTION DES MEDIA --------------------
 
 // DEFINIT L'IMPORT DES DONNES DU JSON MEDIA AU SEIN DE LA VARIABLE MEDIA
@@ -105,6 +107,14 @@ async function displayMedia(media) {
     });
 };
 
+// gestion de la lightbox
+
+function appendLightBoxToPreview() {
+    const articles = document.querySelectorAll('article')
+    articles.forEach((article) =>  {
+        article.setAttribute("onClick", "displayLightBox()");
+    });
+};
 
 // PARTIE 3 -- EXECUTION ---------------------------
 
@@ -122,6 +132,7 @@ async function init() {
 
     updateFormHeader();
     sumLikes();
+    appendLightBoxToPreview()
 };
 
 

@@ -54,9 +54,33 @@
 		</div>
 
 
+    <div id="lightBoxPhotographer" class="lightBox">
+      <div class="lightBoxBody">
+
+        <div class="leftcolumn">
+          <button id="navigateLeft"> < </button> 
+        </div>
+
+        <div class="centercolumn">
+          <div class="emptyDiv"> </div>
+          <img src="assets/media/Animals_Rainbow.jpg" class="lightboxMedia">
+          <p class="mediaTitle">This is the media title</p>
+        </div>
+
+        <div class="rightcolumn">
+          <img src="assets/icons/close-red.png" onclick="closeLightBox()" />
+          <button id="navigateRight"> > </button> 
+          <div class="emptyDiv"> </div>
+        </div>
+
+      </div>
+    </div>
+
+
     <script src="scripts/factories/photographerFactory.js"></script>
     <script src="scripts/factories/mediaFactory.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/lightBox.js"></script>
   </body>
 </html>

@@ -4,6 +4,12 @@ body {
     max-width: 1440px;
 }
 
+.logo {
+    height: 50px;
+    width:200px;
+    margin-top: 4px;
+}
+
 .contact-button {
     font-size: 20px;
     font-weight: bold;
@@ -339,4 +345,115 @@ article h2 {
     align-items: center;
     margin: 0 24px;
 
+}
+
+.lightBox {
+    position: fixed;
+    z-index: 260;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: white;
+    display: none;
+}
+
+.lightBoxBody {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 1240px;
+    margin: auto;
+}
+
+.centercolumn {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.centercolumn .emptyDiv {
+    height: 30px;
+}
+
+.centercolumn img {
+    width: 100%;
+    height: 85%;
+    max-width: 1050px;
+    max-height: 900px;
+    object-fit:cover;
+    object-position: 100% 30%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.mediaTitle {
+    height: 30px;
+    color: #911C1C;
+    font-size: 24px;
+    font-weight: 400px;
+}
+
+.leftcolumn {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 80px;
+}
+
+.leftcolumn button {
+    color: #901C1C;
+    width: 100px;
+    height: 100px;
+    font-family: "DM Sans", arial;
+    font-size: 74px;
+    font-weight: 900;
+    padding:0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transform: scaleY(1.2);
+}
+
+.rightcolumn {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 80px;
+}
+
+
+.rightcolumn button {
+    color: #911C1C;
+    width: 100px;
+    height: 100px;
+    font-family: "DM Sans", arial;
+    font-size: 74px;
+    font-weight: 900;
+    padding:0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transform: scaleY(1.2);
+}
+
+.rightcolumn img {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.rightcolumn .emptyDiv {
+    width: 100px;
+    height: 100px;
 }
