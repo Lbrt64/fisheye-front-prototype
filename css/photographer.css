@@ -218,6 +218,14 @@ article img {
     border-radius: 5px;
 }
 
+article video {
+    object-fit: cover;
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+
 article h2 {
     font-family: "DM Sans", arial;
     font-size: 24px;

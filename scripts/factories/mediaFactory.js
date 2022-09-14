@@ -3,23 +3,37 @@ function mediaFactory(data) {
 
     // SETUP PREALABLE 
         // identification des data a extraire des tableaux passés en DATA
-        const { id, photographerID, title, image, likes, date, price } = data;
+        const { id, photographerID, title, image, video, likes, date, price } = data;
         // construction d'une nouvelle data - le lien d'accès aux photos
-        const picturepath = `assets/media/${image}`;
+        const picturePath = `assets/media/${image}`;
+        // construction d'une nouvelle data - le lien d'accès aux videos
+        const videoPath = `assets/media/${video}`;
+        // création du path du media 
+        function defineMediaPreview() {
+            if(image) {
+                preview = document.createElement( 'img' );
+                preview.setAttribute("src", picturePath);
+                preview.classList.add("image-preview");
+
+            } else {
+                preview = document.createElement( 'video' );
+                preview.setAttribute("src", videoPath);
+                preview.classList.add("video-preview");
+            }
+        }
         // rendre les likes visibles
         const likesCount = likes.toString();
 
+
     // CREATION DES ARTICLES POUR LA PAGE D'ACCUEIL 
-    function getMediaCardDOM() {
+        function getMediaCardDOM() {
 
         // CREATION DES ELEMENTS A IMPORTER DANS LA PAGE -- LES ELEMENTS NE SONT PAS ENCORE AJOUTES A LA PAGE
             // Création de l'élément article -- pas encore rattaché au DOM 
             const article = document.createElement( 'article' );
 
             // Création de la preview de l'image
-            const imgPreview = document.createElement( 'img' );
-            imgPreview.setAttribute("src", picturepath);
-            imgPreview.classList.add("image-preview");
+            defineMediaPreview();
 
             const mediaInfo = document.createElement( 'div' );
             mediaInfo.classList.add("media-info")
@@ -38,7 +52,7 @@ function mediaFactory(data) {
             mediaInfo.appendChild(likes);
 
             // ORGANISATION DES ELEMENTS CREES AU SEIN DE L'ARTICLE -- ELEMENTS PAS AJOUTES A LA PAGE
-            article.appendChild(imgPreview);
+            article.appendChild(preview);
             article.appendChild(mediaInfo);
 
             // VISUALISATION DE L'OBJET ARTICLE POUR CONTROLE
