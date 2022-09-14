@@ -8,7 +8,7 @@ function mediaFactory(data) {
         const picturePath = `assets/media/${image}`;
         // construction d'une nouvelle data - le lien d'accès aux videos
         const videoPath = `assets/media/${video}`;
-        // création du path du media 
+        // fonction pour la création du media preview en fonctoin du type;
         function defineMediaPreview() {
             if(image) {
                 preview = document.createElement( 'img' );
@@ -44,7 +44,7 @@ function mediaFactory(data) {
 
                 // Création du paragraphe contenant le pricing du photographe
                 const likes = document.createElement ( 'p' );
-                likes.textContent = likesCount + " <3" ;
+                likes.textContent = likesCount;
                 likes.classList.add("likes");
 
             // ORGANISATION DES ELEMENTS TEXTUELS AU SEIN DE LEUR CONTENEUR -- ELEMENTS PAS AJOUTES A LA PAGE

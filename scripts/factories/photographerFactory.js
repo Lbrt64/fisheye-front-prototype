@@ -140,5 +140,16 @@ function photographerFactory(data) {
             return(profileBox);
     }
 
-    return { name, id, city, country, tagline, price, portrait, picture, getUserCardDOM, getPhotographInfoDOM }
+    function getBoxPriceDOM() {
+
+        // CREATION DES ELEMENTS A IMPORTER DANS L'ENCART flottant -- LES ELEMENTS NE SONT PAS ENCORE AJOUTES A LA PAGE
+            // Création de l'élément boxprice -- pas encore rattaché au DOM 
+            const boxPrice = document.createElement( 'p' );
+            boxPrice.textContent = price + "€/jour";
+            boxPrice.classList.add("boxprice");
+            // VALIDATION DE L'OPERATION DU BOXPRICE
+            return (boxPrice);
+    }
+
+    return { name, id, city, country, tagline, price, portrait, picture, getUserCardDOM, getPhotographInfoDOM, getBoxPriceDOM }
 }

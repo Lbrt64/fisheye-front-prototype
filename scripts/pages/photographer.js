@@ -35,6 +35,42 @@ async function displayData(photographers) {
     });
 };
 
+// DEFINIT L'AFFICHAGE DES DONNES DE PRIX AU SEIN DE LA BOX FLOTTANTE
+
+const boxlikesprice = document.querySelector(".box-likes-price");
+
+async function displayBoxPrice(photographers) {
+    photographers.forEach((photographer) => {
+        // si l'ID du photographe est dans l'URL
+        if (photographer.id == currentPhotographerID) {
+            // Utilise la FACTORY pour créer les boxLikes des photographes à partir des données de PHOTOGRAPHER
+            const photographerBoxPrice = photographerFactory(photographer);
+            const boxPriceDOM = photographerBoxPrice.getBoxPriceDOM();
+            // Ajoute les PHOTOGRAPHINFODOM sur la section PHOTOGRAPHER SECTION
+            boxlikesprice.appendChild(boxPriceDOM);
+            }
+        });
+};
+
+// Calculer le total des likes sur la page
+function sumLikes() {
+        const allLikes = document.querySelectorAll(".likes")
+        console.log(allLikes[2].innerHTML);
+        var sumLikes = 0;
+        for (let i = 0; i < allLikes.length; i++) {
+            sumLikes += parseFloat(allLikes[i].innerHTML);
+            console.log(sumLikes);
+        }
+        console.log(sumLikes);
+        const likesDisplay = document.createElement( 'p' );
+        likesDisplay.textContent = sumLikes + " <3";
+        likesDisplay.classList.add("boxlikes");
+        boxlikesprice.appendChild(likesDisplay);
+    }
+    
+    // for (let i = 0; i < cars.length; i++) {
+    //     text += cars[i] + "<br>";
+    //   } 
 
 
 // PARTIE 2 -- GESTION DES MEDIA --------------------
@@ -69,9 +105,6 @@ async function displayMedia(media) {
 };
 
 
-
-
-
 // PARTIE 3 -- EXECUTION ---------------------------
 
 // DEFINIT CE QUI SE PASSE AU LANCEMENT DE LA PAGE
@@ -81,11 +114,14 @@ async function init() {
     const { photographers } = await getPhotographers();
     // Crée et affiche les cartes en se basant sur la factory et les data
     displayData(photographers);
+    displayBoxPrice(photographers);
 
     const { media } = await getMedia();
     displayMedia(media);
 
+    sumLikes();
 };
+
 
 // SE LANCE AU DEMARRAGE DE LA PAGE
 init();
