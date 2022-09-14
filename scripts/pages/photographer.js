@@ -54,22 +54,26 @@ async function displayBoxPrice(photographers) {
 
 // Calculer le total des likes sur la page
 function sumLikes() {
-        const allLikes = document.querySelectorAll(".likes")
-        console.log(allLikes[2].innerHTML);
-        var sumLikes = 0;
-        for (let i = 0; i < allLikes.length; i++) {
-            sumLikes += parseFloat(allLikes[i].innerHTML);
-        }
-        const likesDisplay = document.createElement( 'p' );
-        likesDisplay.textContent = sumLikes + " <3";
-        likesDisplay.classList.add("boxlikes");
-        boxlikesprice.appendChild(likesDisplay);
+    const allLikes = document.querySelectorAll(".likes")
+    console.log(allLikes[2].innerHTML);
+    var sumLikes = 0;
+    for (let i = 0; i < allLikes.length; i++) {
+        sumLikes += parseFloat(allLikes[i].innerHTML);
     }
-    
-    // for (let i = 0; i < cars.length; i++) {
-    //     text += cars[i] + "<br>";
-    //   } 
+    const likesDisplay = document.createElement( 'p' );
+    likesDisplay.textContent = sumLikes + " <3";
+    likesDisplay.classList.add("boxlikes");
+    boxlikesprice.appendChild(likesDisplay);
+}
 
+// Récupérer le nom du photographe pour la modale
+const formTitle = document.querySelector(".form-title");
+
+
+function updateFormHeader() {
+    const photographerNameForm = document.querySelector("h1").innerText;
+    formTitle.innerHTML = "Contactez-moi<br>" + photographerNameForm;
+}
 
 // PARTIE 2 -- GESTION DES MEDIA --------------------
 
@@ -117,6 +121,7 @@ async function init() {
     const { media } = await getMedia();
     displayMedia(media);
 
+    updateFormHeader();
     sumLikes();
 };
 
