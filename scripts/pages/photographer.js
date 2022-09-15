@@ -24,7 +24,7 @@ async function displayData(photographers) {
 
     // Pour chaque ligne du tableau photographers
     photographers.forEach((photographer) => {
-        // si l'ID du photographe est dans l'URL
+        // si l'ID du photographe est dans l'URLs
         if (photographer.id == currentPhotographerID) {
             // Utilise la FACTORY pour créer les PHOTOGRAPHINFODOM des photographes à partir des données de PHOTOGRAPHER
             const photographerModel = photographerFactory(photographer);
@@ -107,14 +107,6 @@ async function displayMedia(media) {
     });
 };
 
-// gestion de la lightbox
-
-function appendLightBoxToPreview() {
-    const articles = document.querySelectorAll('article')
-    articles.forEach((article) =>  {
-        article.setAttribute("onClick", "displayLightBox()");
-    });
-};
 
 // PARTIE 3 -- EXECUTION ---------------------------
 
@@ -132,12 +124,13 @@ async function init() {
 
     updateFormHeader();
     sumLikes();
-    appendLightBoxToPreview()
+    linkLightBoxToPreview();
 };
 
 
 // SE LANCE AU DEMARRAGE DE LA PAGE
 init();
+
 
 
 

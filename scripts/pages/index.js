@@ -4,8 +4,6 @@
     async function getPhotographers() {
         // Ajout des données du fichier "photographers.json" dans la constante photographers -- sous forme d'un tableau avec des objets
         const photographers = await fetch("data/photographers.json").then(photographers => photographers.json());
-        // Vérificaiton de l'import du JSON 
-        console.log(photographers);
         // Validation de l'opération d'import
         return photographers;
     }
@@ -17,11 +15,10 @@
 
         // Pour chaque ligne du tableau photographers
         photographers.forEach((photographer) => {
-
             // Utilise la FACTORY pour créer les USERCARDDOM des photographes à partir des données de PHOTOGRAPHER
             const photographerModel = photographerFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
-            // Ajoute les USERCARDDOM sur la section PHOTOGRAPHER SECTION
+            console.log(userCardDOM);
             photographersSection.appendChild(userCardDOM);
         });
     };

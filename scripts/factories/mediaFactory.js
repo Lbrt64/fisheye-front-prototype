@@ -18,7 +18,7 @@ function mediaFactory(data) {
             } else {
                 preview = document.createElement( 'video' );
                 preview.setAttribute("src", videoPath);
-                preview.classList.add("video-preview");
+                preview.classList.add("image-preview");
             }
         }
         // rendre les likes visibles
