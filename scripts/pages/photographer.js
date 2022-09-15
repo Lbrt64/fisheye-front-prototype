@@ -10,8 +10,6 @@ const currentPhotographerID = window.location.search.split("?").join("");
 async function getPhotographers() {
     // Ajout des données du fichier "photographers.json" dans la constante photographers -- sous forme d'un tableau avec des objets
     const photographers = await fetch("data/photographers.json").then(photographers => photographers.json());
-    // Vérificaiton de l'import du JSON 
-    console.log(photographers);
     // Validation de l'opération d'import
     return photographers;
 }
@@ -83,16 +81,15 @@ async function getMedia() {
     // Ajout des données du fichier "media.json" dans la constante media -- sous forme d'un tableau avec des objets
     const media = await fetch("data/media.json").then(media => media.json());
     // Vérificaiton de l'import du JSON 
-    console.log(media);
     // Validation de l'opération d'import
     return media;
 }
 
 // DEFINIT L'AFFICHAGE DES DONNES DES MEDIA SUR LA PAGE D'ACCUEIL DANS LES CARTES
-async function displayMedia(media) {
+const mediaSection = document.querySelector(".media-section");
 
-    // Identifie la section où les data seront ajoutées : PHOTOGRAPHER SECTION
-    const mediaSection = document.querySelector(".media-section");
+async function displayMedia(media) {
+        // Identifie la section où les data seront ajoutées : PHOTOGRAPHER SECTION
 
     // Pour chaque ligne du tableau photographers
     media.forEach((media) => {
@@ -106,7 +103,6 @@ async function displayMedia(media) {
         }
     });
 };
-
 
 // PARTIE 3 -- EXECUTION ---------------------------
 
@@ -132,7 +128,88 @@ async function init() {
 init();
 
 
+function resetMediaSection() {
+    mediaSection.innerHTML = "";
+}
 
+async function displayMediaByLikes(media) {
+    // Identifie la section où les data seront ajoutées : PHOTOGRAPHER SECTION
+    media.sort(function (a,b) {
+        return b.likes - a.likes;
+    });
+    console.log(media[1].likes);
+    console.log(media[40].likes);
+// Pour chaque ligne du tableau photographers
+media.forEach((media) => {
+    // si l'ID du media est dans l'URL
+    if (media.photographerId == currentPhotographerID) {
+        // Utilise la FACTORY pour créer les MEDIACARDDOM des MEDIA à partir des données de MEDIA
+        const mediaModel = mediaFactory(media);
+        const mediaCardDOM = mediaModel.getMediaCardDOM();
+        // Ajoute les MEDIACARDDOM sur la section PHOTOGRAPHER SECTION
+        mediaSection.appendChild(mediaCardDOM);
+    }
+});
+};
 
+async function displayMediaByDate(media) {
+    // Identifie la section où les data seront ajoutées : PHOTOGRAPHER SECTION
+    media.sort(function (a,b) {
+        return new Date(b.date) - new Date(a.date);
+    });
+    console.log(media[1].date);
+    console.log(media[40].date);    
+// Pour chaque ligne du tableau photographers
+media.forEach((media) => {
+    // si l'ID du media est dans l'URL
+    if (media.photographerId == currentPhotographerID) {
+        // Utilise la FACTORY pour créer les MEDIACARDDOM des MEDIA à partir des données de MEDIA
+        const mediaModel = mediaFactory(media);
+        const mediaCardDOM = mediaModel.getMediaCardDOM();
+        // Ajoute les MEDIACARDDOM sur la section PHOTOGRAPHER SECTION
+        mediaSection.appendChild(mediaCardDOM);
+    }
+});
+};
 
+async function displayMediaByTitle(media) {
+        // Identifie la section où les data seront ajoutées : PHOTOGRAPHER SECTION
+        media.sort(function (a,b) {
+            return a.title.localeCompare(b.title);
+        });
+        console.log(media[1].title);
+        console.log(media[40].title);    
+    // Pour chaque ligne du tableau photographers
+    media.forEach((media) => {
+        // si l'ID du media est dans l'URL
+        if (media.photographerId == currentPhotographerID) {
+            // Utilise la FACTORY pour créer les MEDIACARDDOM des MEDIA à partir des données de MEDIA
+            const mediaModel = mediaFactory(media);
+            const mediaCardDOM = mediaModel.getMediaCardDOM();
+            // Ajoute les MEDIACARDDOM sur la section PHOTOGRAPHER SECTION
+            mediaSection.appendChild(mediaCardDOM);
+        }
+    });
+};
+
+async function sortByLikes() {
+    resetMediaSection();
+    const { media } = await getMedia();
+    displayMediaByLikes(media);
+    linkLightBoxToPreview();
+};
+
+async function sortByDate() {
+    resetMediaSection();
+    const { media } = await getMedia();
+    displayMediaByDate(media);
+    linkLightBoxToPreview();
+};
+
+async function sortByName() {
+    resetMediaSection();
+    const { media } = await getMedia();
+    displayMediaByTitle(media);
+    linkLightBoxToPreview();
+};
 

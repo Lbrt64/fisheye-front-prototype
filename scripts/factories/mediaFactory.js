@@ -16,7 +16,7 @@ function mediaFactory(data) {
                 preview.classList.add("image-preview");
 
             } else {
-                preview = document.createElement( 'video' );
+                preview = document.createElement( 'img' );
                 preview.setAttribute("src", videoPath);
                 preview.classList.add("image-preview");
             }
