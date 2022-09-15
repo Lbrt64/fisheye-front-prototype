@@ -40,6 +40,7 @@ function mediaFactory(data) {
 
                 // Création du titre contenant le nom du photographe
                 const h2 = document.createElement( 'h2' );
+                h2.classList.add("cardTitles")
                 h2.textContent = title;
 
                 // Création du paragraphe contenant le pricing du photographe
