@@ -108,16 +108,11 @@ async function displayMedia(media) {
 
 // DEFINIT CE QUI SE PASSE AU LANCEMENT DE LA PAGE
 async function init() {
-    // Lance la création du tableau photographers via ce que return GETPHOTOGRAPHERS 
-    // et transforme le tableau en OBJET pour la fonction DISPLAYDATA
     const { photographers } = await getPhotographers();
-    // Crée et affiche les cartes en se basant sur la factory et les data
     displayData(photographers);
     displayBoxPrice(photographers);
-
     const { media } = await getMedia();
     displayMedia(media);
-
     updateFormHeader();
     sumLikes();
     linkLightBoxToPreview();

@@ -20,12 +20,31 @@ function linkLightBoxToPreview() {
 
             displayLightBox();
             
-            const lightboxmedia = document.querySelector(".lightboxMedia");
+            const lightboxMediaContainer = document.querySelector('.lightboxMediaContainer')
             const mediaTitle = document.querySelector(".mediaTitle");
-            lightboxmedia.src = previews[index].src;
+
+            function generateLightBoxMedia() {
+
+                if(previews[index].src.includes("mp4")) {
+                    lightboxMediaContainer.innerHTML = `
+                        <video class="lightboxMedia" src="${previews[index].src}" type="video/mp4" controls>Erreur dans le chargement du media<video>
+                    `
+                } else {
+                    lightboxMediaContainer.innerHTML = `
+                        <img class="lightboxMedia" src="${previews[index].src}">
+                    `
+                }
+
+            }
+
+            function emptyLightBoxMedia() {
+                lightboxMediaContainer.innerHTML = "";
+            }
+
+            generateLightBoxMedia();
+
+            const lightboxmedia = document.querySelector(".lightboxMedia");
             mediaTitle.textContent = titles[index].textContent;
-
-
 
             const rightbutton = document.querySelector("#navigateRight");
             rightbutton.addEventListener("click", function() {
@@ -37,6 +56,8 @@ function linkLightBoxToPreview() {
                     lightboxmedia.src = previews[++index].src;
                     mediaTitle.textContent = titles[index].textContent;
                 }
+                emptyLightBoxMedia()
+                generateLightBoxMedia();
             });
             const leftbutton = document.querySelector("#navigateLeft");
             leftbutton.addEventListener("click", function() {
@@ -48,6 +69,8 @@ function linkLightBoxToPreview() {
                     lightboxmedia.src = previews[--index].src;
                     mediaTitle.textContent = titles[index].textContent;
                 }
+                emptyLightBoxMedia()
+                generateLightBoxMedia();
             });
         });
     });
