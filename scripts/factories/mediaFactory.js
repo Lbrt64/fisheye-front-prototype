@@ -44,13 +44,40 @@ function mediaFactory(data) {
                 h2.textContent = title;
 
                 // Création du paragraphe contenant le pricing du photographe
-                const likes = document.createElement( 'p' );
-                likes.textContent = likesCount;
-                likes.classList.add("likes");
+                const likesBoxLabel = document.createElement( 'label' );
+                likesBoxLabel.classList.add("likesBoxLabel");
+
+                    // const likes = document.createElement('p');
+                    // likes.textContent = likesCount;
+                    // likes.classList.add("likes");
+                    const likesCheckBox = document.createElement('input')
+                    likesCheckBox.type = "checkbox";
+                    likesBoxLabel.textContent = likesCount;
+
+
+                    const likesLikeButton = document.createElement('i');
+                    likesLikeButton.classList.add("fa-regular");
+                    likesLikeButton.classList.add("fa-heart");
+                    likesLikeButton.classList.add("heart-front");
+                    likesLikeButton.classList.add("unchecked");
+
+
+                    const likesUnlikeButton = document.createElement('i');
+                    likesUnlikeButton.classList.add("fa-solid");
+                    likesUnlikeButton.classList.add("fa-heart");
+                    likesUnlikeButton.classList.add("heart-back");
+                    likesUnlikeButton.classList.add("checked");
+
+            // ORGANISATION DES ELEMENTS AU SEIN DE LA PARTIE LIKES -- ELEMENTS PAS AJOUTES A LA PAGE
+            // likesBox.appendChild(likes);
+            likesBoxLabel.appendChild(likesCheckBox);
+            likesBoxLabel.appendChild(likesLikeButton);
+            likesBoxLabel.appendChild(likesUnlikeButton);
+
 
             // ORGANISATION DES ELEMENTS TEXTUELS AU SEIN DE LEUR CONTENEUR -- ELEMENTS PAS AJOUTES A LA PAGE
             mediaInfo.appendChild(h2);
-            mediaInfo.appendChild(likes);
+            mediaInfo.appendChild(likesBoxLabel);
 
             // ORGANISATION DES ELEMENTS CREES AU SEIN DE L'ARTICLE -- ELEMENTS PAS AJOUTES A LA PAGE
             article.appendChild(preview);
@@ -61,7 +88,6 @@ function mediaFactory(data) {
             // VALIDATION DE L'OPERATION DE CREATION D'UN ARTICLE 
             return (article);
     }
-
 
     return { id, photographerID, title, image, likes, date, price, getMediaCardDOM }
 }

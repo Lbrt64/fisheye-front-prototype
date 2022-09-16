@@ -270,9 +270,11 @@ article {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    cursor: pointer;
 }
 
+.image-preview {
+    cursor: pointer;
+}
 
 article img {
     object-fit: cover;
@@ -297,17 +299,67 @@ article h2 {
     max-width: 80%;
 }
 
-.likes {
+
+
+.likesBoxLabel {
+    width: 70px ;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    cursor:pointer;
     font-family: "DM Sans", arial;
     font-size: 24px;
     font-weight: 500;
     color: #911C1C;
 }
 
+.likesBoxLabel input[type="checkbox"],
+.likesBoxLabel .checked {
+    display: none;
+}
+
+.likesBoxLabel input[type="checkbox"]:checked~.checked {
+    display: inline-block;
+}
+
+.likesBoxLabel input[type="checkbox"]:checked~.unchecked {
+    display: none;
+}
+
+
+/* .likes {
+    font-family: "DM Sans", arial;
+    font-size: 24px;
+    font-weight: 500;
+    color: #911C1C;
+    margin-right: 10px;
+} */
+
+
+
+.heart-front {
+    color: #911C1C;
+    font-size: 22px;
+}
+
+.heart-back {
+    color: #901C1C;
+    font-size: 22px;
+}
+
+
+
+
+
+
+
+
+
 .media-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 10px;
 }
 

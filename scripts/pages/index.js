@@ -18,7 +18,6 @@
             // Utilise la FACTORY pour créer les USERCARDDOM des photographes à partir des données de PHOTOGRAPHER
             const photographerModel = photographerFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
-            console.log(userCardDOM);
             photographersSection.appendChild(userCardDOM);
         });
     };
