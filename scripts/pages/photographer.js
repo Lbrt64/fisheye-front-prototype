@@ -187,24 +187,40 @@ async function displayMediaByTitle(media) {
     });
 };
 
-async function sortByLikes() {
+
+
+async function sortByLikesSorting() {
     resetMediaSection();
     const { media } = await getMedia();
     displayMediaByLikes(media);
     linkLightBoxToPreview();
 };
 
-async function sortByDate() {
+async function sortByDateSorting() {
     resetMediaSection();
     const { media } = await getMedia();
     displayMediaByDate(media);
     linkLightBoxToPreview();
 };
 
-async function sortByName() {
+async function sortByNameSorting() {
     resetMediaSection();
     const { media } = await getMedia();
     displayMediaByTitle(media);
     linkLightBoxToPreview();
 };
 
+function sortByLikes() {
+    resetMediaSection();
+    sortByLikesSorting();
+}
+
+function sortByName() {
+    resetMediaSection();
+    sortByNameSorting();
+}
+
+function sortByDate() {
+    resetMediaSection();
+    sortByDateSorting();
+}
