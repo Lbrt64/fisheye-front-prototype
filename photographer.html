@@ -21,10 +21,10 @@
       <div class="photograph-header">
       </div>
       <section class="filter-section">
-        <p>Trier par</p>
+        <label for="triOpenMenu">Trier par</label>
         <div class="sortMenu closed" id="sortMenu1">
-          <button class="selectFilterButton" id="triOpenMenu" onclick="toggleSortMenu()">
-            Selectionner
+          <button class="selectFilterButton" id="triOpenMenu" name="triOpenMenu" onclick="toggleSortMenu()">
+            Sélectionner
             <i class="fa-solid fa-chevron-down" id="dropdownIcon"></i>
           </button>
           <div class="dropdownFilterList">
@@ -46,11 +46,13 @@
     </div>
 
 
-    <div id="contact_modal" class="modalbg">
+    <dialog id="contact_modal" class="modalbg">
 			<div class="modal">
 				<div class="form-header">
-          <h2 class="form-title"></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h1 class="form-title"></h1>
+          <button class="closeButton" onclick="closeModal()">
+            <img src="assets/icons/close.svg" />
+          </button>
         </div>
 				<form name="contact-me" id="contact-me-form">
 					<div>
@@ -66,14 +68,14 @@
           <button class="contact-button" type="submit" id="submitFormButton">Envoyer</button>
 				</form>
 			</div>
-		</div>
+		</dialog>
 
 
-    <div id="lightBoxPhotographer" class="lightBox">
+    <dialog id="lightBoxPhotographer" class="lightBox">
       <div class="lightBoxBody">
 
         <div class="leftcolumn">
-          <button id="navigateLeft"> < </button> 
+          <a id="navigateLeft"> < </a> 
         </div>
 
         <div class="centercolumn">
@@ -83,13 +85,15 @@
         </div>
 
         <div class="rightcolumn">
-          <img src="assets/icons/close-red.png" onclick="closeLightBox()" />
-          <button id="navigateRight"> > </button> 
+          <button class="closeButton" onclick="closeLightBox()">
+            <img src="assets/icons/close-red.png" />
+          </button>
+          <a id="navigateRight"> > </a> 
           <div class="emptyDiv"> </div>
         </div>
 
       </div>
-    </div>
+    </dialog>
 
 
     <script src="scripts/factories/photographerFactory.js"></script>

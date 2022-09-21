@@ -14,11 +14,11 @@ function photographerFactory(data) {
             // Création de l'élément article -- pas encore rattaché au DOM 
             const article = document.createElement( 'article' );
             article.setAttribute("id", id);
-            article.setAttribute("onclick", "window.location='photographer.html?" + id + " ' ");
 
             // Création de l'élément qui contient la profile picture et les effets visuels
             const imgcontainer = document.createElement( 'div' );
             imgcontainer.classList.add("profile-picture-container");
+            imgcontainer.setAttribute("onclick", "window.location='photographer.html?" + id + " ' ");
 
                 // Création de la profile picture
                 const imgfront = document.createElement( 'img' );
