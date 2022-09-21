@@ -22,9 +22,20 @@
       </div>
       <section class="filter-section">
         <p>Trier par</p>
-        <button class="btnTri" id="triPopularite" onclick="sortByLikes()">Popularité</button>
-        <button class="btnTri" id="triDate" onclick="sortByDate()">Date</button>
-        <button class="btnTri" id="triTitre" onclick="sortByName()">Titre</button>
+        <div class="sortMenu closed" id="sortMenu1">
+          <button class="selectFilterButton" id="triOpenMenu" onclick="toggleSortMenu()">
+            Selectionner
+            <i class="fa-solid fa-chevron-down" id="dropdownIcon"></i>
+          </button>
+          <div class="dropdownFilterList">
+              <div class="whiteline"></div>
+            <button class="btnTri" id="triPopularite" onclick="sortByLikes()">Popularité</button>
+              <div class="whiteline"></div>
+            <button class="btnTri" id="triDate" onclick="sortByDate()">Date</button>
+              <div class="whiteline"></div>
+            <button class="btnTri" id="triTitre" onclick="sortByName()">Titre</button>
+          </div>
+        </div>
       </section>
       <div class="media-section">
       </div>
@@ -87,5 +98,6 @@
     <script src="scripts/utils/likes.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightBox.js"></script>
+    <script src="scripts/utils/sortMenu.js"></script>
   </body>
 </html>

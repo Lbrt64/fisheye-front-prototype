@@ -230,6 +230,7 @@ h1 {
     max-width: 1240px;
     width: 100%;
     align-items: center;
+    position: relative;
 }
 
 
@@ -244,15 +245,59 @@ h1 {
     font-size: 18px;
     font-weight: 800;
     background-color: #901C1C;
-    margin-left: 40px;
-    height: 44px;
+    height: 55px;
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 140px;
+    justify-content: flex-start;
+    padding-left: 10px;
+    width: 170px;
     color: white;
+    border: none;
+    cursor: pointer;
 }
+
+.sortMenu {
+    margin-left: 40px;
+    box-shadow: 0px 8px 8px 8px rgba(0, 0, 0, 5%);
+    background-color: #901C1C;
+    border-radius: 8px;
+    width: 170px;
+    height: 55px;
+    position: absolute;
+    top: 10px;
+    left: 70px;
+    overflow: hidden;
+}
+
+#dropdownIcon {
+    position: absolute;
+    right: 16px;
+    top: 18px;
+}
+
+.dropdownFilterList {
+    position: absolute;
+    background-color: #901C1C;
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.whiteline {
+    width: 145px;
+    height: 1px;
+    background-color: white;
+}
+
+.selectFilterButton {
+    position: absolute center center;
+}
+
+
 
 .media-section {
     display: flex;
@@ -263,6 +308,8 @@ h1 {
     align-items: center;
     margin-bottom: 100px;
 }
+
+
 
 article {
     max-width: 350px;

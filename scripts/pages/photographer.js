@@ -186,6 +186,7 @@ async function sortByLikes() {
     const { photographers } = await getPhotographers();
     displayBoxPrice(photographers);
     setLikes();
+    closeSortMenu()
 }
 
 async function sortByName() {
@@ -194,6 +195,7 @@ async function sortByName() {
     const { photographers } = await getPhotographers();
     displayBoxPrice(photographers);
     setLikes();
+    closeSortMenu()
 }
 
 async function sortByDate() {
@@ -202,4 +204,5 @@ async function sortByDate() {
     const { photographers } = await getPhotographers();
     displayBoxPrice(photographers);
     setLikes();
+    closeSortMenu()
 }
