@@ -23,6 +23,10 @@ body {
     cursor: pointer;
 }
 
+.contact-button:focus {
+    background-color: #DB8876;
+}
+
 #contact_modal {
     display: none;
     position: fixed;
@@ -63,6 +67,14 @@ body {
     height: 40px;
     width: 40px;
     margin-top: 20px;
+}
+
+.form-header button:hover {
+    filter:brightness(0);
+}
+
+.form-header button:focus {
+    filter:brightness(0);
 }
 
 .form-header h1 {
@@ -211,6 +223,11 @@ h1 {
     color: #000000;
 }
 
+.contact-button:focus {
+    background-color: #DB8876;
+    color: #000000;
+}
+
 
 .profile-picture-container {
     width: 33%;
@@ -258,6 +275,12 @@ h1 {
     cursor: pointer;
 }
 .filter-section button:hover {
+    background-color: #DB8876;
+    color: #000000;
+    border-radius: 0;
+}
+
+.filter-section button:focus {
     background-color: #DB8876;
     color: #000000;
     border-radius: 0;
@@ -518,6 +541,14 @@ dialog {
     text-align: center;
 }
 
+.leftcolumn a:hover {
+    color: #DB8876;
+}
+
+.leftcolumn a:focus {
+    color: #DB8876;
+}
+
 .rightcolumn {
     width: 15%;
     display: flex;
@@ -526,7 +557,6 @@ dialog {
     align-items: center;
     padding-right: 80px;
 }
-
 
 .rightcolumn a {
     color: #911C1C;
@@ -543,12 +573,28 @@ dialog {
     text-align: center;
 }
 
-.rightcolumn img {
+.rightcolumn a:hover {
+    color: #DB8876;
+}
+
+.rightcolumn a:focus {
+    color: #DB8876;
+}
+
+.rightcolumn button {
     position: relative;
     width: 90px;
     height: 90px;
-    padding: 30px;
+    padding: 20px;
     cursor: pointer;
+}
+
+.rightcolumn button:hover {
+    filter: brightness(4) saturate(0.7) ;
+}
+
+.rightcolumn button:focus {
+    filter: brightness(4) saturate(0.7) ;
 }
 
 .rightcolumn .emptyDiv {
