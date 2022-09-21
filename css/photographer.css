@@ -299,62 +299,38 @@ article h2 {
     max-width: 80%;
 }
 
-
-
 .likesBoxLabel {
-    width: 70px ;
+    width: 80px ;
+    height: 100%;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
-    cursor:pointer;
     font-family: "DM Sans", arial;
     font-size: 24px;
     font-weight: 500;
     color: #911C1C;
 }
 
-.likesBoxLabel input[type="checkbox"],
-.likesBoxLabel .checked {
-    display: none;
+
+.mediaLikes {
+    position: absolute;
+    left: 6px;
 }
-
-.likesBoxLabel input[type="checkbox"]:checked~.checked {
-    display: inline-block;
-}
-
-.likesBoxLabel input[type="checkbox"]:checked~.unchecked {
-    display: none;
-}
-
-
-/* .likes {
-    font-family: "DM Sans", arial;
-    font-size: 24px;
-    font-weight: 500;
-    color: #911C1C;
-    margin-right: 10px;
-} */
-
-
 
 .heart-front {
     color: #911C1C;
     font-size: 22px;
+    cursor:pointer;
+    position: absolute;
+    top: 4px;
+    right: 6px;
 }
 
-.heart-back {
-    color: #901C1C;
-    font-size: 22px;
+.totalLikesHeart {
+    position: absolute;
+    left: 120px;
 }
-
-
-
-
-
-
-
-
 
 .media-info {
     display: flex;

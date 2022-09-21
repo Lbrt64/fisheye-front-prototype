@@ -43,36 +43,28 @@ function mediaFactory(data) {
                 h2.classList.add("cardTitles")
                 h2.textContent = title;
 
-                // Création du paragraphe contenant le pricing du photographe
-                const likesBoxLabel = document.createElement( 'label' );
+                // Nombre de likes du media
+                const likesBoxLabel = document.createElement( 'div' );
                 likesBoxLabel.classList.add("likesBoxLabel");
 
                     // const likes = document.createElement('p');
                     // likes.textContent = likesCount;
                     // likes.classList.add("likes");
-                    const likesCheckBox = document.createElement('input')
-                    likesCheckBox.type = "checkbox";
-                    likesBoxLabel.textContent = likesCount;
-
+                    const likesCheckBox = document.createElement('p')
+                    likesCheckBox.classList.add("mediaLikes");
+                    likesCheckBox.textContent = likesCount;
 
                     const likesLikeButton = document.createElement('i');
                     likesLikeButton.classList.add("fa-regular");
                     likesLikeButton.classList.add("fa-heart");
                     likesLikeButton.classList.add("heart-front");
-                    likesLikeButton.classList.add("unchecked");
+                    likesLikeButton.classList.add("likeUnchecked");
 
-
-                    const likesUnlikeButton = document.createElement('i');
-                    likesUnlikeButton.classList.add("fa-solid");
-                    likesUnlikeButton.classList.add("fa-heart");
-                    likesUnlikeButton.classList.add("heart-back");
-                    likesUnlikeButton.classList.add("checked");
 
             // ORGANISATION DES ELEMENTS AU SEIN DE LA PARTIE LIKES -- ELEMENTS PAS AJOUTES A LA PAGE
             // likesBox.appendChild(likes);
             likesBoxLabel.appendChild(likesCheckBox);
             likesBoxLabel.appendChild(likesLikeButton);
-            likesBoxLabel.appendChild(likesUnlikeButton);
 
 
             // ORGANISATION DES ELEMENTS TEXTUELS AU SEIN DE LEUR CONTENEUR -- ELEMENTS PAS AJOUTES A LA PAGE

@@ -3,6 +3,7 @@
 // RECUPERE L'ID DU PHOTOGRAPHE DANS L'URL
 const currentPhotographerID = window.location.search.split("?").join("");
 
+
 // PARTIE 1 -- GESTION DE L'EN TETE --------------------
 
 
@@ -84,7 +85,7 @@ async function init() {
     const { media } = await getMedia();
     displayMedia(media);
     updateFormHeader();
-    sumLikes();
+    setLikes();
     linkLightBoxToPreview();
 };
 
@@ -95,6 +96,7 @@ init();
 
 function resetMediaSection() {
     mediaSection.innerHTML = "";
+    document.querySelector(".box-likes-price").innerHTML = "";
 }
 
 async function displayMediaByLikes(media) {
@@ -157,8 +159,6 @@ async function displayMediaByTitle(media) {
     });
 };
 
-
-
 async function sortByLikesSorting() {
     resetMediaSection();
     const { media } = await getMedia();
@@ -180,17 +180,26 @@ async function sortByNameSorting() {
     linkLightBoxToPreview();
 };
 
-function sortByLikes() {
+async function sortByLikes() {
     resetMediaSection();
     sortByLikesSorting();
+    const { photographers } = await getPhotographers();
+    displayBoxPrice(photographers);
+    setLikes();
 }
 
-function sortByName() {
+async function sortByName() {
     resetMediaSection();
     sortByNameSorting();
+    const { photographers } = await getPhotographers();
+    displayBoxPrice(photographers);
+    setLikes();
 }
 
-function sortByDate() {
+async function sortByDate() {
     resetMediaSection();
     sortByDateSorting();
+    const { photographers } = await getPhotographers();
+    displayBoxPrice(photographers);
+    setLikes();
 }
