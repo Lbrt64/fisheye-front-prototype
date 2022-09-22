@@ -14,24 +14,16 @@ function photographerFactory (data) {
     article.setAttribute('id', id)
 
     // Création de l'élément qui contient la profile picture et les effets visuels
-    const imgcontainer = document.createElement('div')
+    const imgcontainer = document.createElement('a')
     imgcontainer.classList.add('profile-picture-container')
     imgcontainer.setAttribute('onclick', "window.location='photographer.html?" + id + " ' ")
+    imgcontainer.setAttribute('aria-label', 'Open ' + name + '\'s page')
 
     // Création de la profile picture
     const imgfront = document.createElement('img')
     imgfront.setAttribute('src', picture)
     imgfront.setAttribute('alt', name)
     imgfront.classList.add('profile-picture-front')
-    // Création du filtre blanc autour de l'image de fond
-    const imgbackfilter = document.createElement('div')
-    imgbackfilter.classList.add('profile-picture-back-filter')
-    // Création de l'image de fond
-    const imgback = document.createElement('img')
-    imgback.setAttribute('src', picture)
-    imgback.setAttribute('alt', ' ')
-    imgback.setAttribute('aria-hidden', true)
-    imgback.classList.add('profile-picture-background')
 
     // Création du titre contenant le nom du photographe
     const h2 = document.createElement('h2')
@@ -54,12 +46,10 @@ function photographerFactory (data) {
 
     // ORGANISATION DES ELEMENTS DE LA PHOTO AU SEIN DE LEUR CONTENEUR (front, filtre, back) -- ELEMENTS PAS AJOUTES A LA PAGE
     imgcontainer.appendChild(imgfront)
-    imgcontainer.appendChild(imgbackfilter)
-    imgcontainer.appendChild(imgback)
+    imgcontainer.appendChild(h2)
 
     // ORGANISATION DES ELEMENTS CREES AU SEIN DE L'ARTICLE -- ELEMENTS PAS AJOUTES A LA PAGE
     article.appendChild(imgcontainer)
-    article.appendChild(h2)
     article.appendChild(location)
     article.appendChild(quote)
     article.appendChild(pricing)
@@ -111,20 +101,9 @@ function photographerFactory (data) {
     imgfront.setAttribute('src', picture)
     imgfront.setAttribute('alt', name)
     imgfront.classList.add('profile-picture-front')
-    // Création du filtre blanc autour de l'image de fond
-    const imgbackfilter = document.createElement('div')
-    imgbackfilter.classList.add('profile-picture-back-filter')
-    // Création de l'image de fond
-    const imgback = document.createElement('img')
-    imgback.setAttribute('src', picture)
-    imgback.classList.add('profile-picture-background')
-    imgback.setAttribute('alt', ' ')
-    imgback.setAttribute('aria-hidden', true)
 
     // ORGANISATION DES ELEMENTS DE LA PHOTO AU SEIN DE LEUR CONTENEUR (front, filtre, back) -- ELEMENTS PAS AJOUTES A LA PAGE
     imgcontainer.appendChild(imgfront)
-    imgcontainer.appendChild(imgbackfilter)
-    imgcontainer.appendChild(imgback)
 
     // ORGANISATION DES ELEMENTS INFOS -- ELEMENTS PAS AJOUTES A LA PAGE
     infos.appendChild(h1)

@@ -240,9 +240,6 @@ h1 {
     padding-right: 50px;
 }
 
-.profile-picture-back-filter {
-    box-shadow: inset 0px 0px 14px 34px rgba(250, 250, 250, 100%);
-}
 
 .filter-section {
     height: 80px;
@@ -262,76 +259,54 @@ h1 {
     font-weight: 800;
 }
 
-.filter-section button {
+
+select {
+    margin-left: 40px;
+    background-color: #901C1C;
+    color: white;
+    border-radius: 8px;
+    width: 170px;
+    height: 55px;
     font-family: "DM Sans", arial;
     font-size: 1.1em;
     font-weight: 800;
-    background-color: #901C1C;
-    height: 55px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 10px;
-    width: 170px;
-    color: white;
     border: none;
-    cursor: pointer;
+    padding:6px;
+    border: #901C1C 4px solid;
 }
-.filter-section button:hover {
+
+option {
+    font-family: "DM Sans", helvetica, open, arial;
+    font-weight: 400;
+    border-radius: 0;
+}
+
+option:hover {
+    font-family: "DM Sans", helvetica, open, arial;
+    font-weight: 400;
+    background-color: #DB8876;
+    color: #000000;
+}
+
+option:focus {
+    font-family: "DM Sans", helvetica, open, arial;
+    font-weight: 400;
+    background-color: #DB8876;
+    color: #000000;
+}
+
+
+/* option:hover {
     background-color: #DB8876;
     color: #000000;
     border-radius: 0;
 }
 
-.filter-section button:focus {
+option:focus {
     background-color: #DB8876;
     color: #000000;
     border-radius: 0;
-}
-
-.sortMenu {
-    margin-left: 40px;
-    box-shadow: 0px 8px 8px 8px rgba(0, 0, 0, 5%);
-    background-color: #901C1C;
-    border-radius: 8px;
-    width: 170px;
-    height: 55px;
-    position: absolute;
-    top: 10px;
-    left: 70px;
-    overflow: hidden;
-    z-index: 200;
-}
-
-#dropdownIcon {
-    position: absolute;
-    right: 16px;
-    top: 18px;
-}
-
-.dropdownFilterList {
-    position: absolute;
-    background-color: #901C1C;
-    width: 170px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-}
-
-.whiteline {
-    width: 145px;
-    height: 1px;
-    background-color: white;
-}
-
-.selectFilterButton {
-    position: absolute center center;
-}
-
-
+} */
 
 .media-section {
     display: flex;
@@ -359,6 +334,7 @@ article {
 
 article img {
     object-fit: cover;
+    object-position: 100% 20%;
     width: 350px;
     height: 300px;
     border-radius: 5px;

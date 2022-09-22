@@ -12,12 +12,12 @@ function mediaFactory (data) {
     if (image) {
       preview = document.createElement('img')
       preview.setAttribute('src', picturePath)
-      preview.setAttribute('alt', title)
+      preview.setAttribute('alt', title + ', closeup view')
       preview.classList.add('image-preview')
     } else {
       preview = document.createElement('video')
       preview.setAttribute('src', videoPath)
-      preview.setAttribute('alt', title)
+      preview.setAttribute('alt', title + ', closeup view')
       preview.classList.add('image-preview')
     }
   }
@@ -57,6 +57,7 @@ function mediaFactory (data) {
     likesLikeButton.classList.add('fa-heart')
     likesLikeButton.classList.add('heart-front')
     likesLikeButton.classList.add('likeUnchecked')
+    likesLikeButton.setAttribute('aria-label', 'likes')
 
     // ORGANISATION DES ELEMENTS AU SEIN DE LA PARTIE LIKES -- ELEMENTS PAS AJOUTES A LA PAGE
     // likesBox.appendChild(likes);

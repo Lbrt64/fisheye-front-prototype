@@ -13,7 +13,7 @@
   <body>
     <header aria-hidden="false">
       <a href="index.html" aria-hidden="true" aria-label="Retour à la liste des photographes">
-        <img src="assets/images/logo.png" class="logo" aria-label="Logo de Fisheye" />
+        <img src="assets/images/logo.png" class="logo" aria-label="Logo de Fisheye" alt="Logo de Fisheye - Retourner à la page d'accueil"/>
       </a>  
     </header>
 
@@ -24,25 +24,13 @@
 
       <section class="filter-section">
 
-        <label for="triOpenMenu" id="trier-par">Trier par</label>
+        <label for="triMenu" id="trier-par">Trier par</label>
 
-        <div class="sortMenu closed" id="sortMenu1">
-
-          <button class="selectFilterButton" id="triOpenMenu" name="triOpenMenu" aria-labelledby="trier-par" onclick="toggleSortMenu()">
-            Sélectionner
-            <i aria-hidden="true" class="fa-solid fa-chevron-down" id="dropdownIcon"></i>
-          </button>
-
-          <div class="dropdownFilterList">
-              <div class="whiteline"></div>
-            <button class="btnTri" id="triPopularite" onclick="sortByLikes()" aria-label="Trier les photos par nombre de likes">Popularité</button>
-              <div class="whiteline"></div>
-            <button class="btnTri" id="triDate" onclick="sortByDate()" aria-label="Trier les photos par date">Date</button>
-              <div class="whiteline"></div>
-            <button class="btnTri" id="triTitre" onclick="sortByName()" aria-label="Trier les photos par ordre alphabétique">Titre</button>
-          </div>
-
-        </div>
+        <select name="triMenu" id="tri-menu" aria-labelledby="trier-par">
+          <option value="Popularité" id="triPopularite" onclick="sortByLikes()" aria-label="Trier les photos par nombre de likes">Popularité</option>
+          <option value="Date" id="triDate" onclick="sortByDate()" aria-label="Trier les photos par date"> Date</option>
+          <option value="Titre" id="triTitre" onclick="sortByName()" aria-label="Trier les photos par ordre alphabétique"> Titre</option>
+        </select>
 
       </section>
 
