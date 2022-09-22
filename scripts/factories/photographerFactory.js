@@ -21,6 +21,7 @@ function photographerFactory (data) {
     // Création de la profile picture
     const imgfront = document.createElement('img')
     imgfront.setAttribute('src', picture)
+    imgfront.setAttribute('alt', name)
     imgfront.classList.add('profile-picture-front')
     // Création du filtre blanc autour de l'image de fond
     const imgbackfilter = document.createElement('div')
@@ -28,6 +29,8 @@ function photographerFactory (data) {
     // Création de l'image de fond
     const imgback = document.createElement('img')
     imgback.setAttribute('src', picture)
+    imgback.setAttribute('alt', ' ')
+    imgback.setAttribute('aria-hidden', true)
     imgback.classList.add('profile-picture-background')
 
     // Création du titre contenant le nom du photographe
@@ -106,6 +109,7 @@ function photographerFactory (data) {
     // Création de la profile picture
     const imgfront = document.createElement('img')
     imgfront.setAttribute('src', picture)
+    imgfront.setAttribute('alt', name)
     imgfront.classList.add('profile-picture-front')
     // Création du filtre blanc autour de l'image de fond
     const imgbackfilter = document.createElement('div')
@@ -114,6 +118,8 @@ function photographerFactory (data) {
     const imgback = document.createElement('img')
     imgback.setAttribute('src', picture)
     imgback.classList.add('profile-picture-background')
+    imgback.setAttribute('alt', ' ')
+    imgback.setAttribute('aria-hidden', true)
 
     // ORGANISATION DES ELEMENTS DE LA PHOTO AU SEIN DE LEUR CONTENEUR (front, filtre, back) -- ELEMENTS PAS AJOUTES A LA PAGE
     imgcontainer.appendChild(imgfront)

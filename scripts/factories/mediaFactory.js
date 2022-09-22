@@ -12,10 +12,12 @@ function mediaFactory (data) {
     if (image) {
       preview = document.createElement('img')
       preview.setAttribute('src', picturePath)
+      preview.setAttribute('alt', title)
       preview.classList.add('image-preview')
     } else {
       preview = document.createElement('video')
       preview.setAttribute('src', videoPath)
+      preview.setAttribute('alt', title)
       preview.classList.add('image-preview')
     }
   }
