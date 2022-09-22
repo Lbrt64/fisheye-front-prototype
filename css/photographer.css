@@ -15,7 +15,7 @@ body {
 }
 
 .contact-button {
-    font-size: 20px;
+    font-size: 1.5em;
     font-weight: bold;
     color: white;
     padding: 11px;
@@ -82,7 +82,7 @@ body {
 }
 
 .form-header h1 {
-    font-size: 64px;
+    font-size: 4.5em;
     font-weight: normal;
     text-align: center;
     font-weight: 400;
@@ -100,7 +100,7 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 2.5em;
     font-weight: 400;
     margin-top: 8px;
 }
@@ -119,7 +119,7 @@ form input {
     border-radius: 5px;
     font-family: "DM Sans", arial;
     color: #312E2E;
-    font-size: 36px;
+    font-size: 2.5em;
     font-weight: 400;
     overflow: scroll;
     padding-left: 10px;
@@ -132,14 +132,14 @@ form textarea {
     border-radius: 5px;
     font-family: "DM Sans", arial;
     color: #312E2E;
-    font-size: 36px;
+    font-size: 2.5em;
     font-weight: 400;
     overflow: scroll;
 }
 
 form .contact-button {
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 1.2em;
     font-weight: 700;
     font-family: "DM Sans", arial;
 }
@@ -186,7 +186,7 @@ form .contact-button {
 
 h1 {
     font-family: "DM sans", arial;
-    font-size: 64px;
+    font-size: 4.5em;
     font-weight: 400;
     color: #D3573C;
     margin: 0;
@@ -194,7 +194,7 @@ h1 {
 
 .photographer-place {
     font-family: "DM sans", arial;
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: 400;
     color: #901C1C;
     margin-top: 12px;
@@ -202,14 +202,14 @@ h1 {
 
 .photographer-quote {
     font-family: "DM sans", arial;
-    font-size: 18px;
+    font-size: 1.1em;
     font-weight: 400;
     color: #525252;
     margin-top: 16px;
 }
 
 .contact-button {
-    font-size: 20px;
+    font-size: 1.2em;
     font-weight: bold;
     color: white;
     padding: 11px;
@@ -258,13 +258,13 @@ h1 {
 
 .filter-section label {
     font-family: "DM Sans", arial;
-    font-size: 18px;
+    font-size: 1.1em;
     font-weight: 800;
 }
 
 .filter-section button {
     font-family: "DM Sans", arial;
-    font-size: 18px;
+    font-size: 1.1em;
     font-weight: 800;
     background-color: #901C1C;
     height: 55px;
@@ -374,7 +374,7 @@ article video {
 
 article h2 {
     font-family: "DM Sans", arial;
-    font-size: 24px;
+    font-size: 1.4em;
     font-weight: 400;
     color: #911C1C;
     max-width: 80%;
@@ -388,7 +388,7 @@ article h2 {
     align-items: flex-start;
     position: relative;
     font-family: "DM Sans", arial;
-    font-size: 24px;
+    font-size: 1.4em;
     font-weight: 500;
     color: #911C1C;
 }
@@ -401,7 +401,7 @@ article h2 {
 
 .heart-front {
     color: #911C1C;
-    font-size: 22px;
+    font-size: 0.95em;
     cursor:pointer;
     position: absolute;
     top: 4px;
@@ -437,7 +437,7 @@ article h2 {
 
 .boxprice {
     min-width: 100px;
-    font-size: 24px;
+    font-size: 1.4em;
     font-weight: 500;
     font-family: "DM Sans",arial;
     display: flex;
@@ -448,7 +448,7 @@ article h2 {
 
 .boxlikes {
     min-width: 100px;
-    font-size: 24px;
+    font-size: 1.4em;
     font-weight: 500;
     font-family: "DM Sans",arial;
     display: flex;
@@ -518,7 +518,7 @@ dialog {
 .mediaTitle {
     height: 30px;
     color: #911C1C;
-    font-size: 24px;
+    font-size: 1.4em;
     font-weight: 400px;
 }
 
@@ -535,7 +535,7 @@ dialog {
     width: 100px;
     height: 100px;
     font-family: "DM Sans", arial;
-    font-size: 74px;
+    font-size: 4.6em;
     font-weight: 900;
     padding:0;
     background-color: transparent;
@@ -567,7 +567,7 @@ dialog {
     width: 100px;
     height: 100px;
     font-family: "DM Sans", arial;
-    font-size: 74px;
+    font-size: 4.6em;
     font-weight: 900;
     padding:0;
     background-color: transparent;
@@ -609,4 +609,8 @@ dialog {
 .closeButton {
     border: none;
     background-color: transparent;
+}
+
+.profile-picture-front {
+    cursor:default;
 }

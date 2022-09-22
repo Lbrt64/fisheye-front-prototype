@@ -29,7 +29,7 @@ header {
 
 h1 {
     color: #901C1C;
-    font-size: 36px;
+    font-size: 2.5em;
     font-weight: 400;
 }
 
@@ -67,7 +67,7 @@ h1 {
 
 .photographer_section article h2 {
     color: #D3573C;
-    font-size: 36px;
+    font-size: 2.5em;
     font-weight: 400;
     margin: 0;
 }
@@ -127,19 +127,19 @@ h1 {
 
 
 .photographer_section article .photographer_place {
-    font-size: 13px;
+    font-size: 1.2em;
     font-weight: 400;
     color: #901C1C;
 }
 
 .photographer_section article .photographer_quote {
-    font-size: 10px;
+    font-size: 1.1em;
     font-weight: 400;
     color: #000;
 }
 
 .photographer_section article .photographer_price {
-    font-size: 9px;
+    font-size: 1em;
     font-weight: 400;
     color: #757575;
 }

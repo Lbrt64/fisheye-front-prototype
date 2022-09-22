@@ -11,69 +11,87 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
-      <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" />
+    <header aria-hidden="false">
+      <a href="index.html" aria-hidden="true" aria-label="Retour à la liste des photographes">
+        <img src="assets/images/logo.png" class="logo" aria-label="Logo de Fisheye" />
       </a>  
     </header>
 
-    <main id="main">
-      <div class="photograph-header">
-      </div>
+    <main id="main" aria-hidden="false">
+      
+      <section aria-label="Informations du photographe" class="photograph-header">
+      </section>
+
       <section class="filter-section">
-        <label for="triOpenMenu">Trier par</label>
+
+        <label for="triOpenMenu" id="trier-par">Trier par</label>
+
         <div class="sortMenu closed" id="sortMenu1">
-          <button class="selectFilterButton" id="triOpenMenu" name="triOpenMenu" onclick="toggleSortMenu()">
+
+          <button class="selectFilterButton" id="triOpenMenu" name="triOpenMenu" aria-labelledby="trier-par" onclick="toggleSortMenu()">
             Sélectionner
-            <i class="fa-solid fa-chevron-down" id="dropdownIcon"></i>
+            <i aria-hidden="true" class="fa-solid fa-chevron-down" id="dropdownIcon"></i>
           </button>
+
           <div class="dropdownFilterList">
               <div class="whiteline"></div>
-            <button class="btnTri" id="triPopularite" onclick="sortByLikes()">Popularité</button>
+            <button class="btnTri" id="triPopularite" onclick="sortByLikes()" aria-label="Trier les photos par nombre de likes">Popularité</button>
               <div class="whiteline"></div>
-            <button class="btnTri" id="triDate" onclick="sortByDate()">Date</button>
+            <button class="btnTri" id="triDate" onclick="sortByDate()" aria-label="Trier les photos par date">Date</button>
               <div class="whiteline"></div>
-            <button class="btnTri" id="triTitre" onclick="sortByName()">Titre</button>
+            <button class="btnTri" id="triTitre" onclick="sortByName()" aria-label="Trier les photos par ordre alphabétique">Titre</button>
           </div>
+
         </div>
+
       </section>
-      <div class="media-section">
-      </div>
+
+      <section aria-label="Photos et vidéos du photographe" class="media-section">
+      </section>
+
     </main>
 
-    <div class="box-likes-price">
+    <div role="dialog" aria-label="Total de likes du photographe et tarif journalier" class="box-likes-price" aria-hidden="false">
     </div>
 
-    <dialog id="contact_modal" class="modalbg">
+    <dialog role="dialog" id="contact_modal" class="modalbg" aria-hidden="true" aria-labelledby="contact-form-title">
 			<div class="modal">
+
 				<div class="form-header">
-          <h1 class="form-title"></h1>
-          <button class="closeButton" onclick="closeModal()">
-            <img src="assets/icons/close.svg" />
+          <h1 id="contact-form-title" class="form-title"></h1>
+          <button class="closeButton" onclick="closeModal()" aria-label="Fermer le formulaire">
+            <img src="assets/icons/close.svg" aria-hidden="true" />
           </button>
         </div>
-				<form name="contact-me" id="contact-me-form">
+
+				<form name="contact-me" id="contact-me-form" aria-label="Formulaire de contact du photographe">
+
 					<div>
-						<label for="first">Prénom</label>
-						<input type="text" id="first" name="first" class="smallText"/>
-						<label for="last">Nom</label>
-						<input type="text" id="last" name="last" class="smallText"/>
-						<label for="email">Email</label>
-						<input type="email" id="email" name="email" class="smallText"/>
-						<label for="message">Message</label>
-						<textarea id="message" name="message" class="longText"></textarea>
+						<label id="label-prenom" for="first">Prénom</label>
+						<input aria-labelledby="label-prenom" type="text" id="first" name="first" class="smallText" placeholder="Votre prénom"/>
+						<label id="label-nom" for="last">Nom</label>
+						<input aria-labelledby="label-nom" type="text" id="last" name="last" class="smallText" placeholder="Votre nom de famille"/>
+						<label id="label-email" for="email">Email</label>
+						<input aria-labelledby="label-email" type="email" id="email" name="email" class="smallText" placeholder="Votre email"/>
+						<label id="label-message" for="message">Message</label>
+						<textarea aria-labelledby="label-message" id="message" name="message" class="longText" placeholder="Votre message au photographe"></textarea>
 					</div>
-          <button class="contact-button" type="submit" id="submitFormButton">Envoyer</button>
+
+          <button class="contact-button" type="submit" id="submitFormButton" aria-label="Envoyer vos réponses au formulaire et retourner à la page précédente">
+            Envoyer
+          </button>
+
 				</form>
+        
 			</div>
 		</dialog>
 
 
-    <dialog id="lightBoxPhotographer" class="lightBox">
+    <dialog role="dialog" id="lightBoxPhotographer" class="lightBox" aria-hidden="true">
       <div class="lightBoxBody">
 
         <div class="leftcolumn">
-          <a id="navigateLeft"> < </a> 
+          <a id="navigateLeft" aria-label="Photo ou vidéo précédente"> < </a> 
         </div>
 
         <div class="centercolumn">
@@ -83,10 +101,10 @@
         </div>
 
         <div class="rightcolumn">
-          <button class="closeButton" onclick="closeLightBox()">
-            <img src="assets/icons/close-red.png" />
+          <button class="closeButton" onclick="closeLightBox()" aria-label="Fermer la lightbox et retourner à la page précédente">
+            <img src="assets/icons/close-red.png" aria-hidden="true" />
           </button>
-          <a id="navigateRight"> > </a> 
+          <a id="navigateRight" aria-label="Photo ou vidéo suivante"> > </a> 
           <div class="emptyDiv"> </div>
         </div>
 
