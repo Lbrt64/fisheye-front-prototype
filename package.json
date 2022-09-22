@@ -1,8 +1,26 @@
 {
-  "devDependencies": {
-    "eslint": "^8.23.1"
-  },
+  "name": "fisheye-front-prototype",
+  "version": "1.0.0",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "main": "index.js",
   "scripts": {
-    "lint": "eslint ."
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lbrt64/fisheye-front-prototype.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lbrt64/fisheye-front-prototype/issues"
+  },
+  "homepage": "https://github.com/Lbrt64/fisheye-front-prototype#readme",
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.0.1"
   }
 }
