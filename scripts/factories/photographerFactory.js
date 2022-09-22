@@ -17,7 +17,14 @@ function photographerFactory (data) {
     const imgcontainer = document.createElement('a')
     imgcontainer.classList.add('profile-picture-container')
     imgcontainer.setAttribute('onclick', "window.location='photographer.html?" + id + " ' ")
-    imgcontainer.setAttribute('aria-label', 'Open ' + name + '\'s page')
+    imgcontainer.setAttribute('aria-label', 'Voir la page de ' + name)
+    imgcontainer.setAttribute('tabindex', '0')
+    imgcontainer.addEventListener('keypress', function(event) {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === 'Enter') {
+        imgcontainer.click()
+      }
+    })
 
     // Création de la profile picture
     const imgfront = document.createElement('img')

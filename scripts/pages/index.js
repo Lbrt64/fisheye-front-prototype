@@ -32,3 +32,5 @@ async function init () {
 
 // SE LANCE AU DEMARRAGE DE LA PAGE
 init()
+
+

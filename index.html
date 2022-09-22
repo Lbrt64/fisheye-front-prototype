@@ -11,13 +11,13 @@
   </head>
   <body>
     <header>
-      <a href="index.html" aria-hidden="true" aria-label="Accès à la page d'accueil" aria-current="page">
+      <a href="index.html" aria-label="Accès à la page d'accueil" aria-current="page">
         <img src="assets/images/logo.png" class="logo" aria-label="Logo de Fisheye" alt="Logo de Fisheye - Retourner à la page d'accueil"/>
       </a>          
-      <h1 id="nos-photographes">Nos photographes</h1>
+      <h1 tabindex="-1" id="nos-photographes">Nos photographes</h1>
     </header>
-    <main id="main">
-        <section class="photographer_section" aria-labelledby="nos-photographes"></section>
+    <main tabindex="-1" id="main">
+        <section tabindex="-1" class="photographer_section" aria-labelledby="nos-photographes"></section>
     </main>
     <script src="scripts/factories/photographerFactory.js"></script>
     <script src="scripts/pages/index.js"></script>

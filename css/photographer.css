@@ -384,6 +384,10 @@ article h2 {
     right: 6px;
 }
 
+.heart-front:focus {
+    border: none;
+}
+
 .totalLikesHeart {
     position: absolute;
     left: 120px;

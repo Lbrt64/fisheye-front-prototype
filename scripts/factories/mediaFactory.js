@@ -12,13 +12,27 @@ function mediaFactory (data) {
     if (image) {
       preview = document.createElement('img')
       preview.setAttribute('src', picturePath)
-      preview.setAttribute('alt', title + ', closeup view')
+      preview.setAttribute('alt', title + ', vue rapprochée')
       preview.classList.add('image-preview')
+      preview.setAttribute('tabindex', '0')
+      preview.addEventListener('keypress', function(event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === 'Enter') {
+          preview.click()
+        }
+      })
     } else {
       preview = document.createElement('video')
       preview.setAttribute('src', videoPath)
-      preview.setAttribute('alt', title + ', closeup view')
+      preview.setAttribute('alt', title + ', vue rapprochée')
       preview.classList.add('image-preview')
+      preview.setAttribute('tabindex', '0')
+      preview.addEventListener('keypress', function(event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === 'Enter') {
+          preview.click()
+        }
+      })
     }
   }
   // rendre les likes visibles
@@ -57,7 +71,14 @@ function mediaFactory (data) {
     likesLikeButton.classList.add('fa-heart')
     likesLikeButton.classList.add('heart-front')
     likesLikeButton.classList.add('likeUnchecked')
-    likesLikeButton.setAttribute('aria-label', 'likes')
+    likesLikeButton.setAttribute('aria-label', 'likes de ' + title)
+    likesLikeButton.setAttribute('tabindex', '0')
+    likesLikeButton.addEventListener('keypress', function(event) {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === 'Enter') {
+        likesLikeButton.click()
+      }
+    })
 
     // ORGANISATION DES ELEMENTS AU SEIN DE LA PARTIE LIKES -- ELEMENTS PAS AJOUTES A LA PAGE
     // likesBox.appendChild(likes);
