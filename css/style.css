@@ -5,6 +5,10 @@
     padding: 0;
   }
 
+*:focus {
+    border: blue 2px solid;
+}
+
 body {
     font-family: "DM Sans", sans-serif;
     margin: auto;
@@ -83,7 +87,7 @@ h1 {
     display: block;
     height: 228px;
     width: 228px;
-    clip-path: circle(36%);
+    clip-path: circle(33%);
     padding:2px;
     object-fit: cover;
     margin: 0;

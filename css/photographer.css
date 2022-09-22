@@ -4,6 +4,10 @@ body {
     max-width: 1440px;
 }
 
+*:focus {
+    border: blue 4px solid;
+}
+
 .logo {
     height: 50px;
     width:200px;
