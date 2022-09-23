@@ -15,24 +15,12 @@ function mediaFactory (data) {
       preview.setAttribute('alt', title + ', vue rapprochée')
       preview.classList.add('image-preview')
       preview.setAttribute('tabindex', '0')
-      preview.addEventListener('keypress', function(event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === 'Enter') {
-          preview.click()
-        }
-      })
     } else {
       preview = document.createElement('video')
       preview.setAttribute('src', videoPath)
       preview.setAttribute('alt', title + ', vue rapprochée')
       preview.classList.add('image-preview')
       preview.setAttribute('tabindex', '0')
-      preview.addEventListener('keypress', function(event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === 'Enter') {
-          preview.click()
-        }
-      })
     }
   }
   // rendre les likes visibles

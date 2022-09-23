@@ -111,14 +111,18 @@ function linkLightBoxToPreview () {
         }
       })
     })
+    preview.addEventListener('keypress', function(event) {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === 'Enter') {
+        preview.click()
+      }
+    })
   })
 };
 
 
 const lbclosebutton = document.querySelector('#lightBoxClose')
-const lightboxmedia = document.querySelector('.lightboxMedia')
 const rightbutton = document.querySelector('#navigateRight')
-const leftbutton = document.querySelector('#navigateLeft')
 const lightbox = document.querySelector('#lightBoxPhotographer'); // select the modal by it's id
 
 // add all the elements inside modal which you want to make focusable
@@ -146,3 +150,4 @@ lightbox.addEventListener('keydown', function(e) {
     }
   }
 });
+
