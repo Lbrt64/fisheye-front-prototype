@@ -4,18 +4,40 @@ const modalCloseButton = document.getElementById('modalCloseButton')
 
 
 function displayModal () {
-  const modalOpenButton = document.getElementById('boutonContactPhotographe')
   modal.style.display = 'block'
   mainwrapper.setAttribute('aria-hidden', true)
   mainwrapper.classList.add('no-scroll')
   modal.setAttribute('aria-hidden', false)
   modalCloseButton.focus()
-}
 
+  // add all the elements inside modal which you want to make focusable
+  const firstFocusableElement = modalCloseButton; // get first element to be focused inside modal
+  const lastFocusableElement = submitFormButton; // get last element to be focused inside modal 
+
+  document.addEventListener('keydown', function(e) {
+    const isTabPressed = e.key === 'Tab';
+
+    if (!isTabPressed) {
+      return;
+    }
+
+    if (e.shiftKey) { // if shift key pressed for shift + tab combination
+      if (document.activeElement === firstFocusableElement) {
+        lastFocusableElement.focus(); // add focus for the last focusable element
+        e.preventDefault();
+      }
+    } else { // if tab key is pressed
+      if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+        firstFocusableElement.focus(); // add focus for the first focusable element
+        e.preventDefault();
+      }
+    }
+  });
+}
 // Close modal when escape key is pressed
 document.addEventListener('keydown', e => {
   if (modal.style.display === 'block' && e.key === 'Escape') {
-      closeModal()
+    closeModal()
   }
 })
 
