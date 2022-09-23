@@ -11,94 +11,96 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header aria-hidden="false">
-      <a href="index.html" aria-hidden="true" aria-label="Retour à la liste des photographes">
-        <img src="assets/images/logo.png" class="logo" aria-label="Logo de Fisheye" alt="Logo de Fisheye - Retourner à la page d'accueil"/>
-      </a>  
-    </header>
 
-    <main id="main" aria-hidden="false">
-      
-      <section aria-label="Informations du photographe" class="photograph-header">
-      </section>
+    <div class="main-wrapper">
+      <header aria-hidden="false">
+        <a href="index.html" aria-hidden="true" aria-label="Retour à la liste des photographes">
+          <img src="assets/images/logo.png" class="logo" aria-label="Logo de Fisheye" alt="Logo de Fisheye - Retourner à la page d'accueil"/>
+        </a>  
+      </header>
 
-      <section class="filter-section">
+      <main id="main" aria-hidden="false">
+        
+        <section aria-label="Informations du photographe" class="photograph-header">
+        </section>
 
-        <label for="triMenu" id="trier-par">Trier par</label>
+        <section class="filter-section">
 
-        <select name="triMenu" id="tri-menu" aria-labelledby="trier-par">
-          <option value="Popularité" id="triPopularite" onclick="sortByLikes()" aria-label="Trier les photos par nombre de likes">Popularité</option>
-          <option value="Date" id="triDate" onclick="sortByDate()" aria-label="Trier les photos par date"> Date</option>
-          <option value="Titre" id="triTitre" onclick="sortByName()" aria-label="Trier les photos par ordre alphabétique"> Titre</option>
-        </select>
+          <label for="triMenu" id="trier-par">Trier par</label>
 
-      </section>
+          <select name="triMenu" id="tri-menu" aria-labelledby="trier-par">
+            <option value="Popularité" id="triPopularite" onclick="sortByLikes()" aria-label="Trier les photos par nombre de likes">Popularité</option>
+            <option value="Date" id="triDate" onclick="sortByDate()" aria-label="Trier les photos par date"> Date</option>
+            <option value="Titre" id="triTitre" onclick="sortByName()" aria-label="Trier les photos par ordre alphabétique"> Titre</option>
+          </select>
 
-      <section aria-label="Photos et vidéos du photographe" class="media-section">
-      </section>
+        </section>
 
-    </main>
+        <section aria-label="Photos et vidéos du photographe" class="media-section">
+        </section>
 
-    <div role="dialog" aria-label="Total de likes du photographe et tarif journalier" class="box-likes-price" aria-hidden="false">
+      </main>
     </div>
 
     <dialog role="dialog" id="contact_modal" class="modalbg" aria-hidden="true" aria-labelledby="contact-form-title">
-			<div class="modal">
-
-				<div class="form-header">
+      <div class="modal">
+  
+        <div class="form-header">
           <h1 id="contact-form-title" class="form-title"></h1>
-          <button class="closeButton" onclick="closeModal()" aria-label="Fermer le formulaire">
+          <button id="modalCloseButton" class="closeButton" onclick="closeModal()" aria-label="Fermer le formulaire">
             <img src="assets/icons/close.svg" aria-hidden="true" alt="Croix pour fermer le formulaire"/>
           </button>
         </div>
-
-				<form name="contact-me" id="contact-me-form" aria-label="Formulaire de contact du photographe">
-
-					<div>
-						<label id="label-prenom" for="first">Prénom</label>
-						<input aria-labelledby="label-prenom" type="text" id="first" name="first" class="smallText" placeholder="Votre prénom"/>
-						<label id="label-nom" for="last">Nom</label>
-						<input aria-labelledby="label-nom" type="text" id="last" name="last" class="smallText" placeholder="Votre nom de famille"/>
-						<label id="label-email" for="email">Email</label>
-						<input aria-labelledby="label-email" type="email" id="email" name="email" class="smallText" placeholder="Votre email"/>
-						<label id="label-message" for="message">Message</label>
-						<textarea aria-labelledby="label-message" id="message" name="message" class="longText" placeholder="Votre message au photographe"></textarea>
-					</div>
-
+  
+        <form name="contact-me" id="contact-me-form" aria-label="Formulaire de contact du photographe">
+  
+          <div>
+            <label id="label-prenom" for="first">Prénom</label>
+            <input aria-labelledby="label-prenom" type="text" id="first" name="first" class="smallText" placeholder="Votre prénom"/>
+            <label id="label-nom" for="last">Nom</label>
+            <input aria-labelledby="label-nom" type="text" id="last" name="last" class="smallText" placeholder="Votre nom de famille"/>
+            <label id="label-email" for="email">Email</label>
+            <input aria-labelledby="label-email" type="email" id="email" name="email" class="smallText" placeholder="Votre email"/>
+            <label id="label-message" for="message">Message</label>
+            <textarea aria-labelledby="label-message" id="message" name="message" class="longText" placeholder="Votre message au photographe"></textarea>
+          </div>
+  
           <button class="contact-button" type="submit" id="submitFormButton" aria-label="Envoyer vos réponses au formulaire et retourner à la page précédente">
             Envoyer
           </button>
-
-				</form>
+  
+        </form>
         
-			</div>
-		</dialog>
-
-
+      </div>
+    </dialog>
+  
     <dialog role="dialog" id="lightBoxPhotographer" class="lightBox" aria-hidden="true">
       <div class="lightBoxBody">
-
+  
         <div class="leftcolumn">
           <a id="navigateLeft" aria-label="Photo ou vidéo précédente"> < </a> 
         </div>
-
+  
         <div class="centercolumn">
           <div class="emptyDiv"> </div>
           <div class="lightboxMediaContainer"></div>
           <p class="mediaTitle"></p>
         </div>
-
+  
         <div class="rightcolumn">
-          <button class="closeButton" onclick="closeLightBox()" aria-label="Fermer la lightbox et retourner à la page précédente">
+          <button class="closeButton" id="lightBoxClose" onclick="closeLightBox()" aria-label="Fermer la lightbox et retourner à la page précédente">
             <img src="assets/icons/close-red.png" aria-hidden="true" alt="Croix pour fermer la lightbox"  />
           </button>
           <a id="navigateRight" aria-label="Photo ou vidéo suivante"> > </a> 
           <div class="emptyDiv"> </div>
         </div>
-
+  
       </div>
     </dialog>
 
+
+    <div role="dialog" aria-label="Total de likes du photographe et tarif journalier" class="box-likes-price" aria-hidden="false">
+    </div>
 
     <script src="scripts/factories/photographerFactory.js"></script>
     <script src="scripts/factories/mediaFactory.js"></script>
@@ -108,4 +110,5 @@
     <script src="scripts/utils/lightBox.js"></script>
     <script src="scripts/utils/sortMenu.js"></script>
   </body>
+
 </html>

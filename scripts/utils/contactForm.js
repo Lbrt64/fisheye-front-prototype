@@ -1,11 +1,31 @@
+const mainwrapper = document.querySelector('.main-wrapper')
+const modal = document.getElementById('contact_modal')
+const modalCloseButton = document.getElementById('modalCloseButton')
+
+
 function displayModal () {
-  const modal = document.getElementById('contact_modal')
+  const modalOpenButton = document.getElementById('boutonContactPhotographe')
   modal.style.display = 'block'
+  mainwrapper.setAttribute('aria-hidden', true)
+  mainwrapper.classList.add('no-scroll')
+  modal.setAttribute('aria-hidden', false)
+  modalCloseButton.focus()
 }
 
+// Close modal when escape key is pressed
+document.addEventListener('keydown', e => {
+  if (modal.style.display === 'block' && e.key === 'Escape') {
+      closeModal()
+  }
+})
+
 function closeModal () {
-  const modal = document.getElementById('contact_modal')
+  const modalOpenButton = document.getElementById('boutonContactPhotographe')
   modal.style.display = 'none'
+  mainwrapper.setAttribute('aria-hidden', false)
+  mainwrapper.classList.remove('no-scroll')
+  modal.setAttribute('aria-hidden', true)
+  modalOpenButton.focus()
 }
 
 const firstNameField = document.getElementById('first')
@@ -32,3 +52,4 @@ function validateForm () {
   closeModal()
 }
 submitFormButton.addEventListener('click', validateForm)
+
