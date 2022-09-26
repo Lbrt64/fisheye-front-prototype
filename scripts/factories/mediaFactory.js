@@ -61,7 +61,7 @@ function mediaFactory (data) {
     likesLikeButton.classList.add('likeUnchecked')
     likesLikeButton.setAttribute('aria-label', 'likes de ' + title)
     likesLikeButton.setAttribute('tabindex', '0')
-    likesLikeButton.addEventListener('keypress', function(event) {
+    likesLikeButton.addEventListener('keypress', function (event) {
       // If the user presses the "Enter" key on the keyboard
       if (event.key === 'Enter') {
         likesLikeButton.click()

@@ -21,7 +21,7 @@ async function displayData (photographers) {
   // Pour chaque ligne du tableau photographers
   photographers.forEach((photographer) => {
     // si l'ID du photographe est dans l'URLs
-    if (photographer.id == currentPhotographerID) {
+    if (photographer.id === currentPhotographerID) {
       // Utilise la FACTORY pour créer les PHOTOGRAPHINFODOM des photographes à partir des données de PHOTOGRAPHER
       const photographerModel = photographerFactory(photographer)
       const photographInfoDOM = photographerModel.getPhotographInfoDOM()
@@ -59,7 +59,7 @@ async function displayMedia (media) {
   // Pour chaque ligne du tableau photographers
   media.forEach((media) => {
     // si l'ID du media est dans l'URL
-    if (media.photographerId == currentPhotographerID) {
+    if (media.photographerId === currentPhotographerID) {
       // Utilise la FACTORY pour créer les MEDIACARDDOM des MEDIA à partir des données de MEDIA
       const mediaModel = mediaFactory(media)
       const mediaCardDOM = mediaModel.getMediaCardDOM()
@@ -101,7 +101,7 @@ async function displayMediaByLikes (media) {
   // Pour chaque ligne du tableau photographers
   media.forEach((media) => {
     // si l'ID du media est dans l'URL
-    if (media.photographerId == currentPhotographerID) {
+    if (media.photographerId === currentPhotographerID) {
       // Utilise la FACTORY pour créer les MEDIACARDDOM des MEDIA à partir des données de MEDIA
       const mediaModel = mediaFactory(media)
       const mediaCardDOM = mediaModel.getMediaCardDOM()
@@ -121,7 +121,7 @@ async function displayMediaByDate (media) {
   // Pour chaque ligne du tableau photographers
   media.forEach((media) => {
     // si l'ID du media est dans l'URL
-    if (media.photographerId == currentPhotographerID) {
+    if (media.photographerId === currentPhotographerID) {
       // Utilise la FACTORY pour créer les MEDIACARDDOM des MEDIA à partir des données de MEDIA
       const mediaModel = mediaFactory(media)
       const mediaCardDOM = mediaModel.getMediaCardDOM()
@@ -141,7 +141,7 @@ async function displayMediaByTitle (media) {
   // Pour chaque ligne du tableau photographers
   media.forEach((media) => {
     // si l'ID du media est dans l'URL
-    if (media.photographerId == currentPhotographerID) {
+    if (media.photographerId === currentPhotographerID) {
       // Utilise la FACTORY pour créer les MEDIACARDDOM des MEDIA à partir des données de MEDIA
       const mediaModel = mediaFactory(media)
       const mediaCardDOM = mediaModel.getMediaCardDOM()

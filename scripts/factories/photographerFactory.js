@@ -19,7 +19,7 @@ function photographerFactory (data) {
     imgcontainer.setAttribute('onclick', "window.location='photographer.html?" + id + " ' ")
     imgcontainer.setAttribute('aria-label', 'Voir la page de ' + name)
     imgcontainer.setAttribute('tabindex', '0')
-    imgcontainer.addEventListener('keypress', function(event) {
+    imgcontainer.addEventListener('keypress', function (event) {
       // If the user presses the "Enter" key on the keyboard
       if (event.key === 'Enter') {
         imgcontainer.click()

@@ -24,17 +24,19 @@
         <section aria-label="Informations du photographe" class="photograph-header">
         </section>
 
-        <section class="filter-section">
+        <div class="filter-section">
 
-          <label for="triMenu" id="trier-par">Trier par</label>
+        <label for="triMenu" id="trier-par">Trier par
 
-          <select name="triMenu" id="tri-menu" aria-labelledby="trier-par">
-            <option value="Popularité" id="triPopularite" onclick="sortByLikes()" aria-label="Trier les photos par nombre de likes">Popularité</option>
-            <option value="Date" id="triDate" onclick="sortByDate()" aria-label="Trier les photos par date"> Date</option>
-            <option value="Titre" id="triTitre" onclick="sortByName()" aria-label="Trier les photos par ordre alphabétique"> Titre</option>
+          <select tabindex="0" name="triMenu" id="triMenu" aria-labelledby="trier-par">
+            <option value="Popularité" id="triPopularite" onclick="sortByLikes()" selected>Popularité</option>
+            <option value="Date" id="triDate" onclick="sortByDate()"> Date</option>
+            <option value="Titre" id="triTitre" onclick="sortByName()"> Titre</option>
           </select>
 
-        </section>
+        </label>
+
+      </div> 
 
         <section aria-label="Photos et vidéos du photographe" class="media-section">
         </section>
@@ -42,17 +44,17 @@
       </main>
     </div>
 
-    <dialog role="dialog" id="contact_modal" class="modalbg" aria-hidden="true" aria-labelledby="contact-form-title">
+    <dialog id="contact_modal" class="modalbg" aria-hidden="true" aria-labelledby="contact-form-title">
       <div class="modal">
   
         <div class="form-header">
           <h1 id="contact-form-title" class="form-title"></h1>
-          <button id="modalCloseButton" class="closeButton" onclick="closeModal()" aria-label="Fermer le formulaire">
+          <button id="modalCloseButton" class="closeButton" onclick="closeModal()" aria-label="Fermer le formulaire" tabindex="0">
             <img src="assets/icons/close.svg" aria-hidden="true" alt="Croix pour fermer le formulaire"/>
           </button>
         </div>
   
-        <form name="contact-me" id="contact-me-form" aria-label="Formulaire de contact du photographe">
+        <form name="contact-me-form" id="contact-me-form" aria-label="Formulaire de contact du photographe">
   
           <div>
             <label id="label-prenom" for="first">Prénom</label>
@@ -62,10 +64,10 @@
             <label id="label-email" for="email">Email</label>
             <input aria-labelledby="label-email" type="email" id="email" name="email" class="smallText" placeholder="Votre email"/>
             <label id="label-message" for="message">Message</label>
-            <textarea aria-labelledby="label-message" id="message" name="message" class="longText" placeholder="Votre message au photographe"></textarea>
+            <textarea aria-labelledby="label-message" id="message" name="message" class="longText" placeholder="Votre message au photographe" tabindex="0"></textarea>
           </div>
   
-          <button class="contact-button" type="submit" id="submitFormButton" aria-label="Envoyer vos réponses au formulaire et retourner à la page précédente">
+          <button class="contact-button" type="submit" id="submitFormButton" aria-label="Envoyer vos réponses au formulaire et retourner à la page précédente" tabindex="0">
             Envoyer
           </button>
   
@@ -74,24 +76,24 @@
       </div>
     </dialog>
   
-    <dialog role="dialog" id="lightBoxPhotographer" class="lightBox" aria-hidden="true">
+    <dialog aria-label='Diaporama des photos et videos' id="lightBoxPhotographer" class="lightBox" aria-hidden="true">
       <div class="lightBoxBody">
   
         <div class="leftcolumn">
-          <a id="navigateLeft" aria-label="Photo ou vidéo précédente"> < </a> 
+          <a id="navigateLeft" aria-label="Photo ou vidéo précédente"> &lt; </a> 
         </div>
   
         <div class="centercolumn">
           <div class="emptyDiv"> </div>
           <div class="lightboxMediaContainer"></div>
-          <p class="mediaTitle"></p>
+          <p class="mediaTitle" id="mediaTitleId"></p>
         </div>
   
         <div class="rightcolumn">
           <button class="closeButton" id="lightBoxClose" onclick="closeLightBox()" aria-label="Fermer la lightbox et retourner à la page précédente">
-            <img src="assets/icons/close-red.png" aria-hidden="true" alt="Croix pour fermer la lightbox"  />
+            <img src="assets/icons/close-red.png" aria-hidden="true" alt="Croix pour fermer la lightbox"/>
           </button>
-          <a id="navigateRight" aria-label="Photo ou vidéo suivante"> > </a> 
+          <a id="navigateRight" aria-label="Photo ou vidéo suivante"> &gt; </a> 
           <div class="emptyDiv"> </div>
         </div>
   

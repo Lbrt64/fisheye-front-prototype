@@ -38,7 +38,7 @@ function linkLightBoxToPreview () {
                     `
         } else {
           lightboxMediaContainer.innerHTML = `
-                        <img class="lightboxMedia" src="${previews[index].src}">
+                        <img tabindex="3" class="lightboxMedia" src="${previews[index].src}">
                     `
         }
       }
@@ -51,6 +51,7 @@ function linkLightBoxToPreview () {
 
       const lightboxmedia = document.querySelector('.lightboxMedia')
       mediaTitle.textContent = titles[index].textContent
+      lightboxmedia.setAttribute('labelled-by', 'mediaTitleId')
 
       const rightbutton = document.querySelector('#navigateRight')
       rightbutton.setAttribute('tabindex', '4')
@@ -68,8 +69,8 @@ function linkLightBoxToPreview () {
         generateLightBoxMedia()
       }
 
-      rightbutton.addEventListener('click', navigateRight);
-      rightbutton.addEventListener('keypress', function(event) {
+      rightbutton.addEventListener('click', navigateRight)
+      rightbutton.addEventListener('keypress', function (event) {
         // If the user presses the "Enter" key on the keyboard
         if (event.key === 'Enter') {
           rightbutton.click()
@@ -91,9 +92,9 @@ function linkLightBoxToPreview () {
         emptyLightBoxMedia()
         generateLightBoxMedia()
       }
-      
+
       leftbutton.addEventListener('click', navigateLeft)
-      leftbutton.addEventListener('keypress', function(event) {
+      leftbutton.addEventListener('keypress', function (event) {
         // If the user presses the "Enter" key on the keyboard
         if (event.key === 'Enter') {
           leftbutton.click()
@@ -105,13 +106,13 @@ function linkLightBoxToPreview () {
         if (lightbox.style.display === 'block' && e.key === 'Escape') {
           closeLightBox()
         } else if (lightbox.style.display === 'block' && e.key === 'ArrowLeft') {
-          navigateLeft();
+          navigateLeft()
         } else if (lightbox.style.display === 'block' && e.key === 'ArrowRight') {
-          navigateRight();
+          navigateRight()
         }
       })
     })
-    preview.addEventListener('keypress', function(event) {
+    preview.addEventListener('keypress', function (event) {
       // If the user presses the "Enter" key on the keyboard
       if (event.key === 'Enter') {
         preview.click()
@@ -120,34 +121,31 @@ function linkLightBoxToPreview () {
   })
 };
 
-
 const lbclosebutton = document.querySelector('#lightBoxClose')
 const rightbutton = document.querySelector('#navigateRight')
-const lightbox = document.querySelector('#lightBoxPhotographer'); // select the modal by it's id
+const lightbox = document.querySelector('#lightBoxPhotographer') // select the modal by it's id
 
 // add all the elements inside modal which you want to make focusable
 
-const firstFocusableElement = lbclosebutton; // get first element to be focused inside modal
-const lastFocusableElement = rightbutton; // get last element to be focused inside modal
+const firstFocusableElement = lbclosebutton // get first element to be focused inside modal
+const lastFocusableElement = rightbutton // get last element to be focused inside modal
 
-
-lightbox.addEventListener('keydown', function(e) {
-  let isTabPressed = e.key === 'Tab';
+lightbox.addEventListener('keydown', function (e) {
+  const isTabPressed = e.key === 'Tab'
 
   if (!isTabPressed) {
-    return;
+    return
   }
 
   if (e.shiftKey) { // if shift key pressed for shift + tab combination
     if (document.activeElement === firstFocusableElement) {
-      lastFocusableElement.focus(); // add focus for the last focusable element
-      e.preventDefault();
+      lastFocusableElement.focus() // add focus for the last focusable element
+      e.preventDefault()
     }
   } else { // if tab key is pressed
     if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-      firstFocusableElement.focus(); // add focus for the first focusable element
-      e.preventDefault();
+      firstFocusableElement.focus() // add focus for the first focusable element
+      e.preventDefault()
     }
   }
-});
-
+})

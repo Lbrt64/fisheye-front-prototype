@@ -5,7 +5,7 @@ const boxlikesprice = document.querySelector('.box-likes-price')
 function displayBoxPrice (photographers) {
   photographers.forEach((photographer) => {
     // si l'ID du photographe est dans l'URL
-    if (photographer.id == currentPhotographerID) {
+    if (photographer.id === currentPhotographerID) {
       // Utilise la FACTORY pour créer les boxLikes des photographes à partir des données de PHOTOGRAPHER
       const photographerBoxPrice = photographerFactory(photographer)
       const boxPriceDOM = photographerBoxPrice.getBoxPriceDOM()

@@ -2,7 +2,6 @@ const mainwrapper = document.querySelector('.main-wrapper')
 const modal = document.getElementById('contact_modal')
 const modalCloseButton = document.getElementById('modalCloseButton')
 
-
 function displayModal () {
   modal.style.display = 'block'
   mainwrapper.setAttribute('aria-hidden', true)
@@ -11,28 +10,28 @@ function displayModal () {
   modalCloseButton.focus()
 
   // add all the elements inside modal which you want to make focusable
-  const firstFocusableElement = modalCloseButton; // get first element to be focused inside modal
-  const lastFocusableElement = submitFormButton; // get last element to be focused inside modal 
+  const firstFocusableElement = modalCloseButton // get first element to be focused inside modal
+  const lastFocusableElement = submitFormButton // get last element to be focused inside modal
 
-  document.addEventListener('keydown', function(e) {
-    const isTabPressed = e.key === 'Tab';
+  document.addEventListener('keydown', function (e) {
+    const isTabPressed = e.key === 'Tab'
 
     if (!isTabPressed) {
-      return;
+      return
     }
 
     if (e.shiftKey) { // if shift key pressed for shift + tab combination
       if (document.activeElement === firstFocusableElement) {
-        lastFocusableElement.focus(); // add focus for the last focusable element
-        e.preventDefault();
+        lastFocusableElement.focus() // add focus for the last focusable element
+        e.preventDefault()
       }
     } else { // if tab key is pressed
       if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-        firstFocusableElement.focus(); // add focus for the first focusable element
-        e.preventDefault();
+        firstFocusableElement.focus() // add focus for the first focusable element
+        e.preventDefault()
       }
     }
-  });
+  })
 }
 // Close modal when escape key is pressed
 document.addEventListener('keydown', e => {
@@ -74,4 +73,3 @@ function validateForm () {
   closeModal()
 }
 submitFormButton.addEventListener('click', validateForm)
-
