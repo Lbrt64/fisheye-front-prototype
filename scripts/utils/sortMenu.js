@@ -1,7 +1,8 @@
 // COLLECT DATA
-
 // reuse elements that were used to create the page at initialization
-import { mediaSection, currentPhotographerID, getMedia, mediaFactory, getPhotographers } from '../pages/photographer.js'
+import { mediaSection, currentPhotographerID, getMedia, getPhotographers } from '../pages/photographer.js'
+// functions used to create media
+import { mediaFactory } from '../factories/mediaFactory.js'
 // function to update lightbox content based on which preview is clicked
 import { linkLightBoxToPreview } from '../utils/lightBox.js'
 // functions to set and update total likes value

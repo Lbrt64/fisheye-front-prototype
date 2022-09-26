@@ -12,13 +12,13 @@ import { setLikes, displayBoxPrice } from '../utils/likes.js'
 export const currentPhotographerID = parseInt(window.location.search.split('?').join(''))
 
 // fetch data from photographers.json
-async function getPhotographers () {
+export async function getPhotographers () {
   const photographers = await fetch('data/photographers.json').then(photographers => photographers.json())
   return photographers
 }
 
 // fetch data from media.json
-async function getMedia () {
+export async function getMedia () {
   const media = await fetch('data/media.json').then(media => media.json())
   return media
 }
