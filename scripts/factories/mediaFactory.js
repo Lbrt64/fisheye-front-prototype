@@ -18,6 +18,7 @@ export function mediaFactory (data) {
   const likesCount = likes.toString()
 
   // function to create media previews based on media data
+  // it returns 'article'
   function getMediaCardDOM () {
     // GETMEDIACARDDOM - CREATE ELEMENTS
     // create the container article for the whole card
