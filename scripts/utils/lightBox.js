@@ -4,6 +4,8 @@
 import { mainwrapper } from '../utils/contactForm.js'
 // get DOM elements
 const lightBoxClose = document.getElementById('lightBoxClose')
+// ACCESSIBILITY - set focus order
+lightBoxClose.setAttribute('tabindex', '1')
 
 // OPEN AND CLOSE LIGHTBOX
 
@@ -33,6 +35,7 @@ function closeLightBox () {
 document.getElementById('lightBoxClose').addEventListener('click', closeLightBox)
 
 // CREATE ALL LIGHTBOX CONTENT
+
 export function createLightBox () {
   // STEP 1 - GET DOM ELEMENTS
   // select all the previews (images and videos) on the grid, that were created by mediaFactory
