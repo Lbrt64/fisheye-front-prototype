@@ -62,7 +62,7 @@ export function mediaFactory (data) {
       const imgPreview = document.createElement('img')
       imgPreview.setAttribute('src', picturePath)
       // ACCESSIBILITY - set the alt for media preview
-      imgPreview.setAttribute('alt', title + ', vue rapprochée')
+      imgPreview.setAttribute('alt', title)
       imgPreview.classList.add('image-preview')
       // ACCESSIBILITY - make preview focusable with tab
       imgPreview.setAttribute('tabindex', '0')
@@ -74,7 +74,7 @@ export function mediaFactory (data) {
       const videoPreview = document.createElement('video')
       videoPreview.setAttribute('src', videoPath)
       // ACCESSIBILITY - set the alt for media preview
-      videoPreview.setAttribute('alt', title + ', vue rapprochée')
+      videoPreview.setAttribute('alt', title)
       videoPreview.classList.add('image-preview')
       // ACCESSIBILITY - make preview focusable with tab
       videoPreview.setAttribute('tabindex', '0')

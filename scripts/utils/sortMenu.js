@@ -4,7 +4,7 @@ import { mediaSection, currentPhotographerID, getMedia, getPhotographers } from 
 // functions used to create media
 import { mediaFactory } from '../factories/mediaFactory.js'
 // function to update lightbox content based on which preview is clicked
-import { linkLightBoxToPreview } from '../utils/lightBox.js'
+import { createLightBox } from '../utils/lightBox.js'
 // functions to set and update total likes value
 import { setLikes, displayBoxPrice } from '../utils/likes.js'
 
@@ -40,7 +40,7 @@ async function sortByDateSorting () {
   } = await getMedia()
   displayMediaByDate(media)
   // this function is imported, it is used to make previews open the right media in the lightbox when clicked, see lightbox.js for details
-  linkLightBoxToPreview()
+  createLightBox()
 };
 
 // Does the same as sortByDateSorting, but in addition updates photographer price and total likes data
@@ -78,7 +78,7 @@ async function sortByLikesSorting () {
     media
   } = await getMedia()
   displayMediaByLikes(media)
-  linkLightBoxToPreview()
+  createLightBox()
 };
 
 export async function sortByLikes () {
@@ -100,7 +100,7 @@ async function sortByNameSorting () {
     media
   } = await getMedia()
   displayMediaByTitle(media)
-  linkLightBoxToPreview()
+  createLightBox()
 };
 
 async function displayMediaByTitle (media) {

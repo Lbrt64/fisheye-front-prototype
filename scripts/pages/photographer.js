@@ -5,7 +5,7 @@ import { photographerFactory } from '../factories/photographerFactory.js'
 // function to create DOM elements based on media data - used to create media preview cards
 import { mediaFactory } from '../factories/mediaFactory.js'
 // function to update lightbox content based on which preview is clicked
-import { linkLightBoxToPreview } from '../utils/lightBox.js'
+import { createLightBox } from '../utils/lightBox.js'
 // functions to set and update total likes value
 import { setLikes, displayBoxPrice } from '../utils/likes.js'
 // get photographer ID from page URL, export for likes.js
@@ -73,7 +73,7 @@ async function init () {
   displayMedia(media)
   updateFormHeader()
   setLikes()
-  linkLightBoxToPreview()
+  createLightBox()
 };
 
 // PAGE LAUNCH

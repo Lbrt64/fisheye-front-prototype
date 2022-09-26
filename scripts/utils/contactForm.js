@@ -1,7 +1,7 @@
 // MANAGE MODAL OPEN & CLOSE
 
 // get DOM elements
-const mainwrapper = document.querySelector('.main-wrapper')
+export const mainwrapper = document.querySelector('.main-wrapper')
 const modal = document.getElementById('contact_modal')
 const modalCloseButton = document.getElementById('modalCloseButton')
 
