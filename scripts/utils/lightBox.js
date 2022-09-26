@@ -2,7 +2,7 @@ const mainwrapperForLightBox = document.querySelector('.main-wrapper')
 const lightBoxClose = document.getElementById('lightBoxClose')
 lightBoxClose.setAttribute('tabindex', '1')
 
-function displayLightBox () {
+function displayLightBox() {
   const lightbox = document.getElementById('lightBoxPhotographer')
   lightbox.style.display = 'block'
   mainwrapperForLightBox.setAttribute('aria-hidden', true)
@@ -11,7 +11,7 @@ function displayLightBox () {
   lightBoxClose.focus()
 }
 
-function closeLightBox () {
+function closeLightBox() {
   const lightbox = document.getElementById('lightBoxPhotographer')
   lightbox.style.display = 'none'
   mainwrapperForLightBox.setAttribute('aria-hidden', false)
@@ -19,9 +19,7 @@ function closeLightBox () {
   lightbox.setAttribute('aria-hidden', true)
 }
 
-// gestion de la lightbox
-
-function linkLightBoxToPreview () {
+function linkLightBoxToPreview() {
   const previews = document.querySelectorAll('.image-preview')
   const titles = document.querySelectorAll('.cardTitles')
   previews.forEach((preview, index) => {
@@ -31,7 +29,7 @@ function linkLightBoxToPreview () {
       const lightboxMediaContainer = document.querySelector('.lightboxMediaContainer')
       const mediaTitle = document.querySelector('.mediaTitle')
 
-      function generateLightBoxMedia () {
+      function generateLightBoxMedia() {
         if (previews[index].src.includes('mp4')) {
           lightboxMediaContainer.innerHTML = `
                         <video tabindex="3" class="lightboxMedia" src="${previews[index].src}" type="video/mp4" controls>Erreur dans le chargement du media<video>
@@ -43,7 +41,7 @@ function linkLightBoxToPreview () {
         }
       }
 
-      function emptyLightBoxMedia () {
+      function emptyLightBoxMedia() {
         lightboxMediaContainer.innerHTML = ''
       }
 
@@ -56,7 +54,7 @@ function linkLightBoxToPreview () {
       const rightbutton = document.querySelector('#navigateRight')
       rightbutton.setAttribute('tabindex', '4')
 
-      function navigateRight () {
+      function navigateRight() {
         if (index === previews.length - 1) {
           lightboxmedia.src = previews[0].src
           mediaTitle.textContent = titles[0].textContent
@@ -71,7 +69,6 @@ function linkLightBoxToPreview () {
 
       rightbutton.addEventListener('click', navigateRight)
       rightbutton.addEventListener('keypress', function (event) {
-        // If the user presses the "Enter" key on the keyboard
         if (event.key === 'Enter') {
           rightbutton.click()
         }
@@ -80,7 +77,7 @@ function linkLightBoxToPreview () {
       const leftbutton = document.querySelector('#navigateLeft')
       leftbutton.setAttribute('tabindex', '2')
 
-      function navigateLeft () {
+      function navigateLeft() {
         if (index === 0) {
           lightboxmedia.src = previews[previews.length - 1].src
           mediaTitle.textContent = titles[titles.length - 1].textContent
@@ -95,12 +92,10 @@ function linkLightBoxToPreview () {
 
       leftbutton.addEventListener('click', navigateLeft)
       leftbutton.addEventListener('keypress', function (event) {
-        // If the user presses the "Enter" key on the keyboard
         if (event.key === 'Enter') {
           leftbutton.click()
         }
       })
-      // Close modal when escape key is pressed
       document.addEventListener('keydown', e => {
         const lightbox = document.getElementById('lightBoxPhotographer')
         if (lightbox.style.display === 'block' && e.key === 'Escape') {
@@ -113,7 +108,6 @@ function linkLightBoxToPreview () {
       })
     })
     preview.addEventListener('keypress', function (event) {
-      // If the user presses the "Enter" key on the keyboard
       if (event.key === 'Enter') {
         preview.click()
       }
@@ -123,12 +117,10 @@ function linkLightBoxToPreview () {
 
 const lbclosebutton = document.querySelector('#lightBoxClose')
 const rightbutton = document.querySelector('#navigateRight')
-const lightbox = document.querySelector('#lightBoxPhotographer') // select the modal by it's id
+const lightbox = document.querySelector('#lightBoxPhotographer')
 
-// add all the elements inside modal which you want to make focusable
-
-const firstFocusableElement = lbclosebutton // get first element to be focused inside modal
-const lastFocusableElement = rightbutton // get last element to be focused inside modal
+const firstFocusableElement = lbclosebutton
+const lastFocusableElement = rightbutton
 
 lightbox.addEventListener('keydown', function (e) {
   const isTabPressed = e.key === 'Tab'
@@ -137,14 +129,14 @@ lightbox.addEventListener('keydown', function (e) {
     return
   }
 
-  if (e.shiftKey) { // if shift key pressed for shift + tab combination
+  if (e.shiftKey) {
     if (document.activeElement === firstFocusableElement) {
-      lastFocusableElement.focus() // add focus for the last focusable element
+      lastFocusableElement.focus()
       e.preventDefault()
     }
   } else { // if tab key is pressed
-    if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-      firstFocusableElement.focus() // add focus for the first focusable element
+    if (document.activeElement === lastFocusableElement) {
+      firstFocusableElement.focus()
       e.preventDefault()
     }
   }

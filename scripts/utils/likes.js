@@ -1,22 +1,16 @@
-// DEFINIT L'AFFICHAGE DES DONNES DE PRIX AU SEIN DE LA BOX FLOTTANTE
-
 const boxlikesprice = document.querySelector('.box-likes-price')
 
-function displayBoxPrice (photographers) {
+function displayBoxPrice(photographers) {
   photographers.forEach((photographer) => {
-    // si l'ID du photographe est dans l'URL
     if (photographer.id === currentPhotographerID) {
-      // Utilise la FACTORY pour créer les boxLikes des photographes à partir des données de PHOTOGRAPHER
       const photographerBoxPrice = photographerFactory(photographer)
       const boxPriceDOM = photographerBoxPrice.getBoxPriceDOM()
-      // Ajoute les PHOTOGRAPHINFODOM sur la section PHOTOGRAPHER SECTION
       boxlikesprice.appendChild(boxPriceDOM)
     }
   })
 };
 
-// Calculer le total des likes sur la page
-async function setLikes () {
+async function setLikes() {
   const allMediaLikes = document.querySelectorAll('.mediaLikes')
   let sumLikes = 0
 
@@ -46,7 +40,7 @@ async function setLikes () {
   })
 };
 
-function updateLikes () {
+function updateLikes() {
   const updatedMediaLikes = document.querySelectorAll('.mediaLikes')
   let updatedSumLikes = 0
   for (let i = 0; i < updatedMediaLikes.length; i++) {
