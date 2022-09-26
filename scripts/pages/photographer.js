@@ -134,7 +134,7 @@ async function sortByNameSorting () {
   linkLightBoxToPreview()
 };
 
-async function sortByLikes () {
+export async function sortByLikes () {
   resetMediaSection()
   sortByLikesSorting()
   const {
@@ -144,9 +144,7 @@ async function sortByLikes () {
   setLikes()
 }
 
-document.getElementById('triPopularite').addEventListener('click', sortByLikes)
-
-async function sortByName () {
+export async function sortByName () {
   resetMediaSection()
   sortByNameSorting()
   const {
@@ -156,9 +154,7 @@ async function sortByName () {
   setLikes()
 }
 
-document.getElementById('triTitre').addEventListener('click', sortByName)
-
-async function sortByDate () {
+export async function sortByDate () {
   resetMediaSection()
   sortByDateSorting()
   const {
@@ -167,5 +163,3 @@ async function sortByDate () {
   displayBoxPrice(photographers)
   setLikes()
 }
-
-document.getElementById('triDate').addEventListener('click', sortByDate)
