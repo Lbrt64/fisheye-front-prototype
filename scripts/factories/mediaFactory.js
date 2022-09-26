@@ -30,7 +30,6 @@ export function mediaFactory (data) {
     likesLikeButton.classList.add('fa-heart')
     likesLikeButton.classList.add('heart-front')
     likesLikeButton.classList.add('likeUnchecked')
-    likesLikeButton.setAttribute('aria-label', 'likes de ' + title)
     likesLikeButton.setAttribute('tabindex', '0')
     likesLikeButton.addEventListener('keypress', function (event) {
       if (event.key === 'Enter') {
@@ -55,6 +54,7 @@ export function mediaFactory (data) {
       videoPreview.setAttribute('alt', title + ', vue rapprochée')
       videoPreview.classList.add('image-preview')
       videoPreview.setAttribute('tabindex', '0')
+      videoPreview.innerHTML = '<track kind="subtitles" src="assets/subtitles.vtt" srclang="fr" />'
       preview.appendChild(videoPreview)
     }
     article.appendChild(mediaInfo)

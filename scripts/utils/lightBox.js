@@ -26,7 +26,9 @@ export function linkLightBoxToPreview () {
       function generateLightBoxMedia () {
         if (previews[index].src.includes('mp4')) {
           lightboxMediaContainer.innerHTML = `
-                        <video tabindex="3" class="lightboxMedia" src="${previews[index].src}" controls>Erreur dans le chargement du media<video>
+                        <video tabindex="3" class="lightboxMedia" src="${previews[index].src}" controls>
+                        video.innerHTML = '<track default kind="subtitles" label="French" src="assets/subtitles.vtt" srclang="fr"/>'
+                        Erreur dans le chargement du media<video>
                     `
         } else {
           lightboxMediaContainer.innerHTML = `

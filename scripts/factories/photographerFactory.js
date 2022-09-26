@@ -18,7 +18,6 @@ export function photographerFactory (data) {
     const imgcontainer = document.createElement('a')
     imgcontainer.classList.add('profile-picture-container')
     imgcontainer.setAttribute('onclick', "window.location='photographer.html?" + id + " ' ")
-    imgcontainer.setAttribute('aria-label', 'Voir la page de ' + name)
     imgcontainer.setAttribute('tabindex', '0')
     imgcontainer.addEventListener('keypress', function (event) {
       if (event.key === 'Enter') {
