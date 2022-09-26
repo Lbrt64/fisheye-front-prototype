@@ -1,3 +1,4 @@
+// function to create DOM elements based on photographer data - used for photographers article cards
 import { photographerFactory } from '../factories/photographerFactory.js'
 
 // define function to extract data from photographers.json
