@@ -11,14 +11,6 @@ function displayLightBox () {
   lightBoxClose.focus()
 }
 
-function closeLightBox () {
-  const lightbox = document.getElementById('lightBoxPhotographer')
-  lightbox.style.display = 'none'
-  mainwrapperForLightBox.setAttribute('aria-hidden', false)
-  mainwrapperForLightBox.classList.remove('no-scroll')
-  lightbox.setAttribute('aria-hidden', true)
-}
-
 document.getElementById('lightBoxClose').addEventListener('click', closeLightBox)
 
 export function linkLightBoxToPreview () {
@@ -34,7 +26,7 @@ export function linkLightBoxToPreview () {
       function generateLightBoxMedia () {
         if (previews[index].src.includes('mp4')) {
           lightboxMediaContainer.innerHTML = `
-                        <video tabindex="3" class="lightboxMedia" src="${previews[index].src}" type="video/mp4" controls>Erreur dans le chargement du media<video>
+                        <video tabindex="3" class="lightboxMedia" src="${previews[index].src}" controls>Erreur dans le chargement du media<video>
                     `
         } else {
           lightboxMediaContainer.innerHTML = `
@@ -46,7 +38,6 @@ export function linkLightBoxToPreview () {
       function emptyLightBoxMedia () {
         lightboxMediaContainer.innerHTML = ''
       }
-
       generateLightBoxMedia()
 
       const lightboxmedia = document.querySelector('.lightboxMedia')
@@ -116,6 +107,15 @@ export function linkLightBoxToPreview () {
     })
   })
 };
+
+function closeLightBox () {
+  const lightbox = document.getElementById('lightBoxPhotographer')
+  lightbox.style.display = 'none'
+  mainwrapperForLightBox.setAttribute('aria-hidden', false)
+  mainwrapperForLightBox.classList.remove('no-scroll')
+  lightbox.setAttribute('aria-hidden', true)
+  linkLightBoxToPreview()
+}
 
 const lbclosebutton = document.querySelector('#lightBoxClose')
 const rightbutton = document.querySelector('#navigateRight')

@@ -49,6 +49,5 @@ function updateLikes () {
   for (let i = 0; i < updatedMediaLikes.length; i++) {
     updatedSumLikes += parseFloat(updatedMediaLikes[i].innerText)
   }
-  console.log(updatedSumLikes)
   document.querySelector('.boxlikes').innerHTML = updatedSumLikes + '<i class="fa-solid fa-heart totalLikesHeart">'
 }
