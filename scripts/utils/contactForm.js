@@ -5,12 +5,11 @@ const modalCloseButton = document.getElementById('modalCloseButton')
 export function displayModal () {
   modal.style.display = 'block'
   mainwrapper.setAttribute('aria-hidden', true)
-  mainwrapper.classList.add('no-scroll')
+  mainwrapper.classList.add('no-scrol')
   modal.setAttribute('aria-hidden', false)
   modalCloseButton.focus()
   const firstFocusableElement = modalCloseButton
   const lastFocusableElement = submitFormButton
-
   document.addEventListener('keydown', function (e) {
     const isTabPressed = e.key === 'Tab'
 
@@ -32,12 +31,6 @@ export function displayModal () {
   })
 }
 
-document.addEventListener('keydown', e => {
-  if (modal.style.display === 'block' && e.key === 'Escape') {
-    closeModal()
-  }
-})
-
 function closeModal () {
   const modalOpenButton = document.getElementById('boutonContactPhotographe')
   modal.style.display = 'none'
@@ -47,8 +40,6 @@ function closeModal () {
   modalOpenButton.focus()
 }
 
-document.getElementById('modalCloseButton').addEventListener('click', closeModal)
-
 const firstNameField = document.getElementById('first')
 const lastNameField = document.getElementById('last')
 const emailField = document.getElementById('email')
@@ -57,9 +48,6 @@ const messageField = document.getElementById('message')
 const submitFormButton = document.getElementById('submitFormButton')
 
 const contactForm = document.getElementById('contact-me-form')
-contactForm.addEventListener('submit', function (e) {
-  e.preventDefault()
-})
 
 function getFieldsValue () {
   console.log('Prenom : ' + firstNameField.value)
@@ -72,4 +60,22 @@ function validateForm () {
   getFieldsValue()
   closeModal()
 }
-submitFormButton.addEventListener('click', validateForm)
+
+if (modal) {
+  document.addEventListener('keydown', e => {
+    if (modal.style.display === 'block' && e.key === 'Escape') {
+      closeModal()
+    }
+  })
+}
+if (modalCloseButton) {
+  document.getElementById('modalCloseButton').addEventListener('click', closeModal)
+}
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault()
+  })
+}
+if (submitFormButton) {
+  submitFormButton.addEventListener('click', validateForm)
+}

@@ -72,8 +72,6 @@ async function displayMediaByLikes (media) {
   media.sort(function (a, b) {
     return b.likes - a.likes
   })
-  console.log(media[1].likes)
-  console.log(media[40].likes)
   media.forEach((media) => {
     if (media.photographerId === currentPhotographerID) {
       const mediaModel = mediaFactory(media)
@@ -87,8 +85,6 @@ async function displayMediaByDate (media) {
   media.sort(function (a, b) {
     return new Date(b.date) - new Date(a.date)
   })
-  console.log(media[1].date)
-  console.log(media[40].date)
   media.forEach((media) => {
     if (media.photographerId === currentPhotographerID) {
       const mediaModel = mediaFactory(media)
