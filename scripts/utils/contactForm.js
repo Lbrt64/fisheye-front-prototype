@@ -2,7 +2,7 @@ const mainwrapper = document.querySelector('.main-wrapper')
 const modal = document.getElementById('contact_modal')
 const modalCloseButton = document.getElementById('modalCloseButton')
 
-function displayModal() {
+export function displayModal () {
   modal.style.display = 'block'
   mainwrapper.setAttribute('aria-hidden', true)
   mainwrapper.classList.add('no-scroll')
@@ -31,13 +31,14 @@ function displayModal() {
     }
   })
 }
+
 document.addEventListener('keydown', e => {
   if (modal.style.display === 'block' && e.key === 'Escape') {
     closeModal()
   }
 })
 
-function closeModal() {
+function closeModal () {
   const modalOpenButton = document.getElementById('boutonContactPhotographe')
   modal.style.display = 'none'
   mainwrapper.setAttribute('aria-hidden', false)
@@ -45,6 +46,8 @@ function closeModal() {
   modal.setAttribute('aria-hidden', true)
   modalOpenButton.focus()
 }
+
+document.getElementById('modalCloseButton').addEventListener('click', closeModal)
 
 const firstNameField = document.getElementById('first')
 const lastNameField = document.getElementById('last')
@@ -58,14 +61,14 @@ contactForm.addEventListener('submit', function (e) {
   e.preventDefault()
 })
 
-function getFieldsValue() {
+function getFieldsValue () {
   console.log('Prenom : ' + firstNameField.value)
   console.log('Nom : ' + lastNameField.value)
   console.log('Email : ' + emailField.value)
   console.log('Message : ' + messageField.value)
 }
 
-function validateForm() {
+function validateForm () {
   getFieldsValue()
   closeModal()
 }

@@ -2,7 +2,7 @@ const mainwrapperForLightBox = document.querySelector('.main-wrapper')
 const lightBoxClose = document.getElementById('lightBoxClose')
 lightBoxClose.setAttribute('tabindex', '1')
 
-function displayLightBox() {
+function displayLightBox () {
   const lightbox = document.getElementById('lightBoxPhotographer')
   lightbox.style.display = 'block'
   mainwrapperForLightBox.setAttribute('aria-hidden', true)
@@ -11,7 +11,7 @@ function displayLightBox() {
   lightBoxClose.focus()
 }
 
-function closeLightBox() {
+function closeLightBox () {
   const lightbox = document.getElementById('lightBoxPhotographer')
   lightbox.style.display = 'none'
   mainwrapperForLightBox.setAttribute('aria-hidden', false)
@@ -19,7 +19,9 @@ function closeLightBox() {
   lightbox.setAttribute('aria-hidden', true)
 }
 
-function linkLightBoxToPreview() {
+document.getElementById('lightBoxClose').addEventListener('click', closeLightBox)
+
+export function linkLightBoxToPreview () {
   const previews = document.querySelectorAll('.image-preview')
   const titles = document.querySelectorAll('.cardTitles')
   previews.forEach((preview, index) => {
@@ -29,7 +31,7 @@ function linkLightBoxToPreview() {
       const lightboxMediaContainer = document.querySelector('.lightboxMediaContainer')
       const mediaTitle = document.querySelector('.mediaTitle')
 
-      function generateLightBoxMedia() {
+      function generateLightBoxMedia () {
         if (previews[index].src.includes('mp4')) {
           lightboxMediaContainer.innerHTML = `
                         <video tabindex="3" class="lightboxMedia" src="${previews[index].src}" type="video/mp4" controls>Erreur dans le chargement du media<video>
@@ -41,7 +43,7 @@ function linkLightBoxToPreview() {
         }
       }
 
-      function emptyLightBoxMedia() {
+      function emptyLightBoxMedia () {
         lightboxMediaContainer.innerHTML = ''
       }
 
@@ -54,7 +56,7 @@ function linkLightBoxToPreview() {
       const rightbutton = document.querySelector('#navigateRight')
       rightbutton.setAttribute('tabindex', '4')
 
-      function navigateRight() {
+      function navigateRight () {
         if (index === previews.length - 1) {
           lightboxmedia.src = previews[0].src
           mediaTitle.textContent = titles[0].textContent
@@ -77,7 +79,7 @@ function linkLightBoxToPreview() {
       const leftbutton = document.querySelector('#navigateLeft')
       leftbutton.setAttribute('tabindex', '2')
 
-      function navigateLeft() {
+      function navigateLeft () {
         if (index === 0) {
           lightboxmedia.src = previews[previews.length - 1].src
           mediaTitle.textContent = titles[titles.length - 1].textContent

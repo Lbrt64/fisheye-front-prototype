@@ -1,4 +1,6 @@
-function photographerFactory(data) {
+import { displayModal } from '../utils/contactForm.js'
+
+export function photographerFactory (data) {
   const {
     name,
     id,
@@ -10,7 +12,7 @@ function photographerFactory(data) {
   } = data
   const picture = `assets/photographers/${portrait}`
 
-  function getUserCardDOM() {
+  function getUserCardDOM () {
     const article = document.createElement('article')
     article.setAttribute('id', id)
     const imgcontainer = document.createElement('a')
@@ -47,7 +49,7 @@ function photographerFactory(data) {
     return (article)
   }
 
-  function getPhotographInfoDOM() {
+  function getPhotographInfoDOM () {
     const profileBox = document.createElement('div')
     profileBox.classList.add('profileBox')
     const infos = document.createElement('div')
@@ -63,7 +65,7 @@ function photographerFactory(data) {
     const boutonContact = document.createElement('button')
     boutonContact.textContent = 'Contactez-moi'
     boutonContact.classList.add('contact-button')
-    boutonContact.setAttribute('onclick', 'displayModal()')
+    boutonContact.addEventListener('click', displayModal)
     boutonContact.id = 'boutonContactPhotographe'
     const imgcontainer = document.createElement('div')
     imgcontainer.classList.add('profile-picture-container')
@@ -81,7 +83,7 @@ function photographerFactory(data) {
     return (profileBox)
   }
 
-  function getBoxPriceDOM() {
+  function getBoxPriceDOM () {
     const boxPrice = document.createElement('p')
     boxPrice.textContent = price + '€/jour'
     boxPrice.classList.add('boxprice')

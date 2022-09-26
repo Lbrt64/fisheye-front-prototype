@@ -1,4 +1,4 @@
-function mediaFactory(data) {
+export function mediaFactory (data) {
   const {
     id,
     photographerID,
@@ -11,27 +11,10 @@ function mediaFactory(data) {
   } = data
   const picturePath = `assets/media/${image}`
   const videoPath = `assets/media/${video}`
-
-  function defineMediaPreview() {
-    if (image) {
-      preview = document.createElement('img')
-      preview.setAttribute('src', picturePath)
-      preview.setAttribute('alt', title + ', vue rapprochée')
-      preview.classList.add('image-preview')
-      preview.setAttribute('tabindex', '0')
-    } else {
-      preview = document.createElement('video')
-      preview.setAttribute('src', videoPath)
-      preview.setAttribute('alt', title + ', vue rapprochée')
-      preview.classList.add('image-preview')
-      preview.setAttribute('tabindex', '0')
-    }
-  }
   const likesCount = likes.toString()
-
-  function getMediaCardDOM() {
+  function getMediaCardDOM () {
     const article = document.createElement('article')
-    defineMediaPreview()
+    const preview = document.createElement('div')
     const mediaInfo = document.createElement('div')
     mediaInfo.classList.add('media-info')
     const h2 = document.createElement('h2')
@@ -59,6 +42,21 @@ function mediaFactory(data) {
     mediaInfo.appendChild(h2)
     mediaInfo.appendChild(likesBoxLabel)
     article.appendChild(preview)
+    if (image !== undefined) {
+      const imgPreview = document.createElement('img')
+      imgPreview.setAttribute('src', picturePath)
+      imgPreview.setAttribute('alt', title + ', vue rapprochée')
+      imgPreview.classList.add('image-preview')
+      imgPreview.setAttribute('tabindex', '0')
+      preview.appendChild(imgPreview)
+    } else if (video !== undefined) {
+      const videoPreview = document.createElement('video')
+      videoPreview.setAttribute('src', videoPath)
+      videoPreview.setAttribute('alt', title + ', vue rapprochée')
+      videoPreview.classList.add('image-preview')
+      videoPreview.setAttribute('tabindex', '0')
+      preview.appendChild(videoPreview)
+    }
     article.appendChild(mediaInfo)
     return (article)
   }

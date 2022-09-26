@@ -1,11 +1,16 @@
-const currentPhotographerID = parseInt(window.location.search.split('?').join(''))
+import { photographerFactory } from '../factories/photographerFactory.js'
+import { mediaFactory } from '../factories/mediaFactory.js'
+import { linkLightBoxToPreview } from '../utils/lightBox.js'
+import { setLikes, displayBoxPrice } from '../utils/likes.js'
 
-async function getPhotographers() {
+export const currentPhotographerID = parseInt(window.location.search.split('?').join(''))
+
+async function getPhotographers () {
   const photographers = await fetch('data/photographers.json').then(photographers => photographers.json())
   return photographers
 }
 
-async function displayData(photographers) {
+async function displayData (photographers) {
   const photographersHeader = document.querySelector('.photograph-header')
 
   photographers.forEach((photographer) => {
@@ -19,19 +24,19 @@ async function displayData(photographers) {
 
 const formTitle = document.querySelector('.form-title')
 
-function updateFormHeader() {
+function updateFormHeader () {
   const photographerNameForm = document.querySelector('h1').innerText
   formTitle.innerHTML = 'Contactez-moi<br>' + photographerNameForm
 }
 
-async function getMedia() {
+async function getMedia () {
   const media = await fetch('data/media.json').then(media => media.json())
   return media
 }
 
 const mediaSection = document.querySelector('.media-section')
 
-async function displayMedia(media) {
+async function displayMedia (media) {
   media.forEach((media) => {
     if (media.photographerId === currentPhotographerID) {
       const mediaModel = mediaFactory(media)
@@ -41,7 +46,7 @@ async function displayMedia(media) {
   })
 };
 
-async function init() {
+async function init () {
   const {
     photographers
   } = await getPhotographers()
@@ -58,12 +63,12 @@ async function init() {
 
 init()
 
-function resetMediaSection() {
+function resetMediaSection () {
   mediaSection.innerHTML = ''
   document.querySelector('.box-likes-price').innerHTML = ''
 }
 
-async function displayMediaByLikes(media) {
+async function displayMediaByLikes (media) {
   media.sort(function (a, b) {
     return b.likes - a.likes
   })
@@ -78,7 +83,7 @@ async function displayMediaByLikes(media) {
   })
 };
 
-async function displayMediaByDate(media) {
+async function displayMediaByDate (media) {
   media.sort(function (a, b) {
     return new Date(b.date) - new Date(a.date)
   })
@@ -93,7 +98,7 @@ async function displayMediaByDate(media) {
   })
 };
 
-async function displayMediaByTitle(media) {
+async function displayMediaByTitle (media) {
   media.sort(function (a, b) {
     return a.title.localeCompare(b.title)
   })
@@ -106,7 +111,7 @@ async function displayMediaByTitle(media) {
   })
 };
 
-async function sortByLikesSorting() {
+async function sortByLikesSorting () {
   resetMediaSection()
   const {
     media
@@ -115,7 +120,7 @@ async function sortByLikesSorting() {
   linkLightBoxToPreview()
 };
 
-async function sortByDateSorting() {
+async function sortByDateSorting () {
   resetMediaSection()
   const {
     media
@@ -124,7 +129,7 @@ async function sortByDateSorting() {
   linkLightBoxToPreview()
 };
 
-async function sortByNameSorting() {
+async function sortByNameSorting () {
   resetMediaSection()
   const {
     media
@@ -133,7 +138,7 @@ async function sortByNameSorting() {
   linkLightBoxToPreview()
 };
 
-async function sortByLikes() {
+async function sortByLikes () {
   resetMediaSection()
   sortByLikesSorting()
   const {
@@ -143,7 +148,9 @@ async function sortByLikes() {
   setLikes()
 }
 
-async function sortByName() {
+document.getElementById('triPopularite').addEventListener('click', sortByLikes)
+
+async function sortByName () {
   resetMediaSection()
   sortByNameSorting()
   const {
@@ -153,7 +160,9 @@ async function sortByName() {
   setLikes()
 }
 
-async function sortByDate() {
+document.getElementById('triTitre').addEventListener('click', sortByName)
+
+async function sortByDate () {
   resetMediaSection()
   sortByDateSorting()
   const {
@@ -162,3 +171,5 @@ async function sortByDate() {
   displayBoxPrice(photographers)
   setLikes()
 }
+
+document.getElementById('triDate').addEventListener('click', sortByDate)

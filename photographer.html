@@ -29,9 +29,9 @@
         <label for="triMenu" id="trier-par">Trier par
 
           <select tabindex="0" name="triMenu" id="triMenu" aria-labelledby="trier-par">
-            <option value="Popularité" id="triPopularite" onclick="sortByLikes()" selected>Popularité</option>
-            <option value="Date" id="triDate" onclick="sortByDate()"> Date</option>
-            <option value="Titre" id="triTitre" onclick="sortByName()"> Titre</option>
+            <option value="Popularité" id="triPopularite" selected>Popularité</option>
+            <option value="Date" id="triDate"> Date</option>
+            <option value="Titre" id="triTitre"> Titre</option>
           </select>
 
         </label>
@@ -49,7 +49,7 @@
   
         <div class="form-header">
           <h1 id="contact-form-title" class="form-title"></h1>
-          <button id="modalCloseButton" class="closeButton" onclick="closeModal()" aria-label="Fermer le formulaire" tabindex="0">
+          <button id="modalCloseButton" class="closeButton" aria-label="Fermer le formulaire" tabindex="0">
             <img src="assets/icons/close.svg" aria-hidden="true" alt="Croix pour fermer le formulaire"/>
           </button>
         </div>
@@ -90,7 +90,7 @@
         </div>
   
         <div class="rightcolumn">
-          <button class="closeButton" id="lightBoxClose" onclick="closeLightBox()" aria-label="Fermer la lightbox et retourner à la page précédente">
+          <button class="closeButton" id="lightBoxClose" aria-label="Fermer la lightbox et retourner à la page précédente">
             <img src="assets/icons/close-red.png" aria-hidden="true" alt="Croix pour fermer la lightbox"/>
           </button>
           <a id="navigateRight" aria-label="Photo ou vidéo suivante"> &gt; </a> 
@@ -104,13 +104,13 @@
     <div role="dialog" aria-label="Total de likes du photographe et tarif journalier" class="box-likes-price" aria-hidden="false">
     </div>
 
-    <script src="scripts/factories/photographerFactory.js"></script>
-    <script src="scripts/factories/mediaFactory.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/utils/likes.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
-    <script src="scripts/utils/lightBox.js"></script>
-    <script src="scripts/utils/sortMenu.js"></script>
+    <script type="module" src="scripts/factories/photographerFactory.js"></script>
+    <script type="module" src="scripts/factories/mediaFactory.js"></script>
+    <script type="module" src="scripts/pages/photographer.js"></script>
+    <script type="module" src="scripts/utils/likes.js"></script>
+    <script type="module" src="scripts/utils/contactForm.js"></script>
+    <script type="module" src="scripts/utils/lightBox.js"></script>
+    <script type="module" src="scripts/utils/sortMenu.js"></script>
   </body>
 
 </html>

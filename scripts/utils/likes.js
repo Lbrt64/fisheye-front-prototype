@@ -1,6 +1,9 @@
+import { currentPhotographerID } from '../pages/photographer.js'
+import { photographerFactory } from '../factories/photographerFactory.js'
+
 const boxlikesprice = document.querySelector('.box-likes-price')
 
-function displayBoxPrice(photographers) {
+export function displayBoxPrice (photographers) {
   photographers.forEach((photographer) => {
     if (photographer.id === currentPhotographerID) {
       const photographerBoxPrice = photographerFactory(photographer)
@@ -10,7 +13,7 @@ function displayBoxPrice(photographers) {
   })
 };
 
-async function setLikes() {
+export async function setLikes () {
   const allMediaLikes = document.querySelectorAll('.mediaLikes')
   let sumLikes = 0
 
@@ -40,7 +43,7 @@ async function setLikes() {
   })
 };
 
-function updateLikes() {
+function updateLikes () {
   const updatedMediaLikes = document.querySelectorAll('.mediaLikes')
   let updatedSumLikes = 0
   for (let i = 0; i < updatedMediaLikes.length; i++) {
