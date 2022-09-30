@@ -83,6 +83,7 @@ export function photographerFactory (data) {
     // create page title based on photograper name
     const h1 = document.createElement('h1')
     h1.textContent = name
+    h1.classList.add('photographerName')
     // create paragraph for photographer location
     const location = document.createElement('p')
     location.textContent = city + ', ' + country
