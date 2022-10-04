@@ -9,6 +9,8 @@ import { createLightBox } from '../utils/lightBox.js'
 // functions to set and update total likes value
 import { setLikes, displayBoxPrice } from '../utils/likes.js'
 // get photographer ID from page URL, export for likes.js
+import { sortByLikes } from '../utils/sortMenu.js'
+// get photographer ID from page URL, export for likes.js
 export const currentPhotographerID = parseInt(window.location.search.split('?').join(''))
 
 // fetch data from photographers.json
@@ -73,6 +75,7 @@ async function init () {
   displayMedia(media)
   updateFormHeader()
   setLikes()
+  sortByLikes()
   createLightBox()
 };
 
